@@ -1,4 +1,4 @@
-package cn.com.zx211.javaweb.po;
+package cn.com.zx221.javaweb.po;
 
 import java.sql.Timestamp;
 
