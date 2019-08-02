@@ -14,5 +14,11 @@ public class DAOFacotryTest {
 		DAOFactory factory = DAOFactory.getFactoryInstance();
 		System.out.println(factory);
 	}
+	@Test
+	public void createCdDAO() {
+		DAOFactory factory = DAOFactory.getFactoryInstance();
+		ICdDAO dao = factory.createCdDAO();
+		System.out.println(dao);
+	}
 
 }

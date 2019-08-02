@@ -40,5 +40,16 @@ public class DAOFactory {
 		return factory;
 	}
 
+	public ICdDAO createCdDAO() {
+		ICdDAO cd = null;
+		String clsName = props.getProperty("CdDao");
+		try {
+			Class cls = Class.forName(clsName);
+			cd = (ICdDAO)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cd;
+	}
 	
 }

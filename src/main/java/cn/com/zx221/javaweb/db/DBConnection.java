@@ -1,8 +1,9 @@
 package cn.com.zx221.javaweb.db;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -64,5 +65,15 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 		return conn;
+	}
+	
+	public void close(Connection conn,PreparedStatement pstmt,ResultSet rs) {
+		try {
+			conn.close();
+			pstmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
