@@ -11,7 +11,7 @@ public class MVPO {
 	private String mvName;
 	private String mvArea;
 	private String mvType;
-	private String mvPlayCount;
+	private int mvPlayCount;
 	private String mvIntroduce;
 	private Timestamp mvIssue;// 发行时间
 	private String mvSingerName;
@@ -39,10 +39,10 @@ public class MVPO {
 	public void setMvType(String mvType) {
 		this.mvType = mvType;
 	}
-	public String getMvPlayCount() {
+	public int getMvPlayCount() {
 		return mvPlayCount;
 	}
-	public void setMvPlayCount(String mvPlayCount) {
+	public void setMvPlayCount(int mvPlayCount) {
 		this.mvPlayCount = mvPlayCount;
 	}
 	public String getMvIntroduce() {

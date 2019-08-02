@@ -1,6 +1,6 @@
 package cn.com.zx221.javaweb.db;
 
-import java.io.IOException;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,7 +11,6 @@ import com.alibaba.druid.pool.DruidDataSource;
 /**
  * 数据库连接
  * @author Administrator
- *
  */
 public class DBConnection {
 	private static DBConnection dbCon;
