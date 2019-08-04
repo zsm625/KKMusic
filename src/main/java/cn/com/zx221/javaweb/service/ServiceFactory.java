@@ -7,6 +7,7 @@ import java.util.Properties;
 
 
 
+
 /**
  * 业务层实例创建的工厂
  * @author ZSM
@@ -59,4 +60,20 @@ public class ServiceFactory {
 		}
 	}
 
+	/**
+	 * 
+	 *@author ZSM
+	 * @return
+	 */
+	public ICdService createCdService() {
+		ICdService cd = null;
+		String clsName = props.getProperty("CdService");
+		try {
+			Class cls = Class.forName(clsName);
+			cd = (ICdService)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cd;
+	}
 }
