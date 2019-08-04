@@ -28,8 +28,13 @@ public class SingerServlet extends HttpServlet {
 		List<SingerVo> singerList = singerService.findSinger(2,null, null, null, null);
 		System.out.println(singerList.size());
 		request.setAttribute("singerList", singerList);
+<<<<<<< HEAD
 		int pageNumber = singerService.PageNumber(null, null, null, null);
 		request.setAttribute("pageNumber", pageNumber);
+=======
+		/*List<SingerVo> singerTxtList = singerService.findSingerTxt(1,null, null, null, null);
+		request.setAttribute("singerTxtList", singerTxtList);*/
+>>>>>>> refs/remotes/origin/master
 		request.getRequestDispatcher("/WEB-INF/jsp/singer.jsp").forward(request, response);
 	}
 
