@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 
+
+
 /**
  * 业务层实例创建的工厂
  * @author ZSM
@@ -41,6 +43,20 @@ public class ServiceFactory {
 		}
 		return factory;
 	}
-
+	private Object createObject(String clsName)throws Exception{
+    	Object obj = null;
+    	// 加载类
+    	Class cls = Class.forName(clsName);
+    	// 反射产生对象
+    	obj = cls.newInstance();
+    	return obj;
+    }
+	public SingerService createSingerService() {
+		try {
+			return (SingerService)this.createObject(props.getProperty("singerService"));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

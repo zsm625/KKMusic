@@ -39,6 +39,27 @@ public class DAOFactory {
 		}
 		return factory;
 	}
-
+	 
+	/**
+	 * 反射产生对象
+	 * @param clsName
+	 * @return
+	 * @throws Exception
+	 */
+    private Object createObject(String clsName)throws Exception{
+    	Object obj = null;
+    	Class cls = Class.forName(clsName);
+    	obj = cls.newInstance();
+    	return obj;
+    }
+    public SingerDAO createSingerDAO() {
+    	SingerDAO dao = null;
+    	try {
+			dao = (SingerDAO) this.createObject(this.props.getProperty("singerDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return dao;
+    }
 	
 }

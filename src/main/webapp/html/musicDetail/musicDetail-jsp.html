@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/musicDetail/layout_0412.css" />
+		<link rel="stylesheet" href="../../css/musicDetail/song_detail.css" />
+		<!-- <link rel="stylesheet" href="../../css/musicDetail/qb-ie-remind.css" />
+		<link rel="stylesheet" href="../../css/musicDetail/popup_login.css" /> -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="mod_data" itemscope itemtype="http://schema.org/MusicRecording" style="display:;">
+			<span class="data__cover">
+
+				<img src="//y.gtimg.cn/music/photo_new/T002R300x300M000000iM4vS3RvsdP.jpg?max_age=2592000" onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
+				 alt="源" class="data__photo" />
+
+			</span>
+			<div class="data__cont">
+				<div class="data__name">
+					<h1 class="data__name_txt" title="源">源</h1>
+				</div>
+				<div class="data__singer" title="王源">
+					<i class="icon_singer sprite"></i>
+					<a href="//y.qq.com/n/yqq/singer/000IBYF50SRnXP.html" data-mid="000IBYF50SRnXP" title="王源" class="glyphicon glyphicon-user"
+					 data-stat="y_new.song.header.singername" itemprop="byArtist"> 王源 </a>
+				</div>
+				<ul class="data__info">
+					<li class="data_info__item">专辑：<a href="//y.qq.com/n/yqq/album/000iM4vS3RvsdP.html" itemprop="inAlbum" class="js_album"
+						 data-stat="y_new.song.header.albumname" data-albummid="000iM4vS3RvsdP" data-albumid="7245185" title="源">源</a></li>
+					<li class="data_info__item data_info__item--even js_lan" style="display:block;">语种：国语</li>
+					<li class="data_info__item js_genre" style="display:block;">流派：Pop</li>
+					<li class="data_info__item data_info__item--even js_company" style="display:block;">唱片公司：北京俊峰时代</li>
+					<li class="data_info__item js_public_time" style="display:block;">发行时间：2019-07-30</li>
+				</ul>
+				<div class="data__actions" role="toolbar">
+					<a href="//y.qq.com/portal/player.html" class="mod_btn_green js_all_play"><i class="mod_btn_green__icon_play"></i>播放</a>
+					<a href="javascript:;" class="mod_btn js_all_like"><i class="mod_btn__icon_like"></i>收藏</a>
+					<a class="mod_btn js_into_comment" data-stat="y_new.song.gotocomment" href="#comment_box"><i class="mod_btn__icon_comment"></i>评论</a>
+					<a href="javascript:;" class="mod_btn js_more" data-stat="y_new.song.header.more" data-id="234988181"
+					 data-songtype="0" data-mid="002QOGYl0y2Kgl"><i class="mod_btn__icon_menu"></i>更多</a>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="detail_layout">
+			<div class="detail_layout__main">
+
+				<!--歌词_S-->
+				<div class="mod_lyric">
+					<input id="copy_content" style="display:none;"></input>
+					<div class="lyric__hd">
+						<h2 class="lyric__tit">歌词</h2><a class="btn_copy sprite" id="copy_link" href="javascript:;" onclick="copyLyric('copy_content');"
+						 data-clipboard-target="copy_content" title="复制歌词"><i class="icon_txt">复制</i></a>
+					</div>
+					<div class="lyric__cont limit">
+						<div class="lyric__cont_box" id="lrc_content"></div>
+						<a href="javascript:;" class="c_tx_highlight js_open_lyric">[展开]</a>
+					</div>
+				</div>
+				<!--歌词_E-->
+			</div>
+			<div class="detail_layout__other">
+				<div class="mod_about" id="album_desc" style="display:none;">
+					<h3 class="about__tit">简介</h3>
+					<div class="about__cont">
+					</div>
+					<a href="javascript:;" class="about__more" data-stat="y_new.song.moreinfo" data-left="0" data-top="-185"
+					 data-target="popup_data_detail">[更多]</a>
+				</div>
+
+
+				<div class="other_part" style="display:none;" id="song_playlist">
+					<h3 class="other_part__tit">相关热门歌单</h3>
+					<div class="mod_playlist">
+						<ul class="playlist__list">
+						</ul>
+					</div>
+				</div>
+
+				<div class="other_part" id="song_mv">
+				</div>
+			</div>
+
+		</div>
+		<div class="popup_data_detail" id="popup_data_detail" style="display:none;">
+			<div class="popup_data_detail__cont">
+				<h3 class="popup_data_detail__tit">专辑简介</h3>
+			</div>
+			<i class="popup_data_detail__arrow"></i>
+		</div>
+	</body>
+</html>
