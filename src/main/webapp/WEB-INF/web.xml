@@ -10,7 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-<<<<<<< HEAD
     <description>是第一个demo问候的SErvlet</description>
     <servlet-name>SingerServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.SingerServlet</servlet-class>
@@ -18,10 +17,13 @@
   <servlet-mapping>
     <servlet-name>SingerServlet</servlet-name>
     <url-pattern>/singerServlet</url-pattern>
-=======
+    </servlet-mapping>
+   <servlet>
+    <description></description>
     <servlet-name>CdShowServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.CdShowServlet</servlet-class>
   </servlet>
+ 
   <servlet-mapping>
     <servlet-name>CdShowServlet</servlet-name>
     <url-pattern>/cdShowServlet</url-pattern>
@@ -35,6 +37,5 @@
   <servlet-mapping>
     <servlet-name>Test</servlet-name>
     <url-pattern>/test</url-pattern>
->>>>>>> refs/remotes/origin/master
   </servlet-mapping>
 </web-app>
