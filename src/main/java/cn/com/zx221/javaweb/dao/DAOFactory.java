@@ -76,7 +76,7 @@ public class DAOFactory {
 	 */
 	public ICdDAO createCdDAO() {
 		ICdDAO cd = null;
-		String clsName = props.getProperty("CdDAO");
+		String clsName = props.getProperty("cdDAO");
 		try {
 			Class cls = Class.forName(clsName);
 			cd = (ICdDAO) cls.newInstance();
@@ -84,5 +84,20 @@ public class DAOFactory {
 			e.printStackTrace();
 		}
 		return cd;
+	}
+	
+	/**
+	 * 创建ISongDAO实例
+	 *@author ZSM
+	 * @return
+	 */
+	public ISongDAO createSongDAO() {
+		ISongDAO dao = null;
+		try {
+			dao = (ISongDAO) this.createObject(this.props.getProperty("songDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dao;
 	}
 }

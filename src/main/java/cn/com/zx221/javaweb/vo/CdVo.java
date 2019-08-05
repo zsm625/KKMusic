@@ -1,6 +1,7 @@
 package cn.com.zx221.javaweb.vo;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import cn.com.zx221.javaweb.po.CdPo;
 
@@ -13,36 +14,45 @@ import cn.com.zx221.javaweb.po.CdPo;
 public class CdVo extends CdPo{
 	
 	private CdPo po;
-	private String songName;
-	private String songUrl;
+	private List<String> songName;
+	private List<String> songUrl;
 	private String singerName;
-	private String songTime;
+	private List<String> songTime;
 	private String mvUrl;
+	private String cdPublisher;
+	public String getCdPublisher() {
+		return cdPublisher;
+	}
+	public void setCdPublisher(String cdPublisher) {
+		this.cdPublisher = cdPublisher;
+	}
 	public CdVo(CdPo po) {
 		this.po = po;
 	}
-	public String getSongName() {
-		return songName;
-	}
-	public void setSongName(String songName) {
-		this.songName = songName;
-	}
-	public String getSongUrl() {
-		return songUrl;
-	}
-	public void setSongUrl(String songUrl) {
-		this.songUrl = songUrl;
-	}
+	
 	public String getSingerName() {
 		return singerName;
 	}
 	public void setSingerName(String singerName) {
 		this.singerName = singerName;
 	}
-	public String getSongTime() {
+	
+	public List<String> getSongName() {
+		return songName;
+	}
+	public void setSongName(List<String> songName) {
+		this.songName = songName;
+	}
+	public List<String> getSongUrl() {
+		return songUrl;
+	}
+	public void setSongUrl(List<String> songUrl) {
+		this.songUrl = songUrl;
+	}
+	public List<String> getSongTime() {
 		return songTime;
 	}
-	public void setSongTime(String songTime) {
+	public void setSongTime(List<String> songTime) {
 		this.songTime = songTime;
 	}
 	public String getMvUrl() {
