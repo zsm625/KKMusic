@@ -1,8 +1,9 @@
 package cn.com.zx221.javaweb.db;
 
-
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -26,6 +27,35 @@ public class DBConnection {
 		}
 	}
 	
+	
+	
+	public static DBConnection getInstance() {
+		if(dbCon ==null) {
+			dbCon = new DBConnection();
+		}
+		return dbCon;
+	}
+
+	public Connection getConnection() {
+		Connection conn = null;
+		try {
+			conn = this.druidDataSource.getConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+	public void close(Connection conn,PreparedStatement pstmt,ResultSet rs) {
+		try {
+			conn.close();
+			pstmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private void init() {
 		Properties props = new Properties();
 		InputStream inStream = DBConnection.class.getClassLoader().getResourceAsStream("db.properties");
@@ -46,22 +76,5 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 		
-	}
-	
-	public static DBConnection getInstance() {
-		if(dbCon ==null) {
-			dbCon = new DBConnection();
-		}
-		return dbCon;
-	}
-
-	public Connection getConnection() {
-		Connection conn = null;
-		try {
-			conn = this.druidDataSource.getConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return conn;
 	}
 }

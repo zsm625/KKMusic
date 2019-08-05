@@ -1,6 +1,7 @@
 package cn.com.zx221.javaweb.service;
 
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -40,6 +41,18 @@ public class ServiceFactory {
 			factory = new ServiceFactory();
 		}
 		return factory;
+	}
+
+	public IMVService creatMVService() {
+		IMVService mv=null;
+		String clsName=props.getProperty("MVService");
+		try {
+			Class cls = Class.forName(clsName);
+			mv=(IMVService)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
 	}
 
 

@@ -1,6 +1,7 @@
 package cn.com.zx221.javaweb.dao;
 
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -40,5 +41,27 @@ public class DAOFactory {
 		return factory;
 	}
 
+	public ICdDAO createCdDAO() {
+		ICdDAO cd = null;
+		String clsName = props.getProperty("CdDao");
+		try {
+			Class cls = Class.forName(clsName);
+			cd = (ICdDAO)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cd;
+	}
 	
+	public IMVDao creatMVDAo() {
+		IMVDao mv=null;
+		String clsName = props.getProperty("MVDao");
+		try {
+			Class cls = Class.forName(clsName);
+			mv = (IMVDao)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
 }

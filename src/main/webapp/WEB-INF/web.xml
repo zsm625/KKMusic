@@ -8,6 +8,14 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  </web-app>
-  
-  
+  <servlet>
+    <description></description>
+    <display-name>AaaaServlet</display-name>
+    <servlet-name>AaaaServlet</servlet-name>
+    <servlet-class>cn.com.zx221.javaweb.servlet.AaaaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AaaaServlet</servlet-name>
+    <url-pattern>/aaaaServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
