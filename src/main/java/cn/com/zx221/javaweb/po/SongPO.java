@@ -14,8 +14,17 @@ public class SongPO {
 	private Timestamp songPublishDate;
 	private String songUrl;
 	private String cyricUrl;
-	private Timestamp songTime;
+	private String songTime;//在此修改了songtime的类型，改为String类型的
 	private int songTypeId;
+	private String songPicUrl;
+	public String getSongPicUrl() {
+		return songPicUrl;
+	}
+
+	public void setSongPicUrl(String songPicUrl) {
+		this.songPicUrl = songPicUrl;
+	}
+
 	public int getSongId() {
 		return songId;
 	}
@@ -104,11 +113,11 @@ public class SongPO {
 		this.cyricUrl = cyricUrl;
 	}
 
-	public Timestamp getSongTime() {
+	public String getSongTime() {
 		return songTime;
 	}
 
-	public void setSongTime(Timestamp songTime) {
+	public void setSongTime(String songTime) {
 		this.songTime = songTime;
 	}
 

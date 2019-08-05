@@ -72,4 +72,21 @@ public class ServiceFactory {
 		}
 		return cd;
 	}
+	
+	/**
+	 * ISongService实例
+	 *@author ZSM
+	 * @return
+	 */
+	public ISongService createSongService() {
+		ISongService song = null;
+		String clsName = props.getProperty("songService");
+		try {
+			Class cls = Class.forName(clsName);
+			song = (ISongService)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return song;
+	}
 }

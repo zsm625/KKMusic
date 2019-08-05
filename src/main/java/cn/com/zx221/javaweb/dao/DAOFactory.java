@@ -90,4 +90,20 @@ public class DAOFactory {
 		return cd;
 	}
 
+
+	
+	/**
+	 * 创建ISongDAO实例
+	 *@author ZSM
+	 * @return
+	 */
+	public ISongDAO createSongDAO() {
+		ISongDAO dao = null;
+		try {
+			dao = (ISongDAO) this.createObject(this.props.getProperty("songDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dao;
+	}
 }

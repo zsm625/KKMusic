@@ -39,6 +39,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+
     <display-name>SingerDetailServlet</display-name>
     <servlet-name>SingerDetailServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.SingerDetailServlet</servlet-class>
@@ -46,5 +47,14 @@
   <servlet-mapping>
     <servlet-name>SingerDetailServlet</servlet-name>
     <url-pattern>/singerDetailServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+    <display-name>CdSongDetailServlet</display-name>
+    <servlet-name>CdSongDetailServlet</servlet-name>
+    <servlet-class>cn.com.zx221.javaweb.servlet.CdSongDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CdSongDetailServlet</servlet-name>
+    <url-pattern>/cdSongDetailServlet</url-pattern>
   </servlet-mapping>
 </web-app>

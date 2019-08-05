@@ -9,7 +9,6 @@ import java.util.List;
 import cn.com.zx221.javaweb.dao.SingerDAO;
 import cn.com.zx221.javaweb.db.DBConnection;
 import cn.com.zx221.javaweb.po.SingerPo;
-import cn.com.zx221.javaweb.util.Constant;
 
 public class SingerDAOImpl implements SingerDAO {
 
@@ -131,6 +130,7 @@ public class SingerDAOImpl implements SingerDAO {
 		return count;
 	}
 
+
 	public List<SingerPo> findSinger(int currPageNo, int number, String singer_initial, String singer_areaId,
 			String singer_sex, String singer_type) {
 		List<SingerPo> singerList = null;
@@ -173,6 +173,7 @@ public class SingerDAOImpl implements SingerDAO {
 			sql += " limit ?,?";
 			pstmt = conn.prepareStatement(sql);
 			currPageNo--;
+
 			if (!singer_initial.equals("热门") && !singer_sex.equals("全部") && !singer_areaId.equals("全部")
 					&& !singer_type.equals("全部")) {
 				pstmt.setString(1, singer_initial);
@@ -318,6 +319,27 @@ public class SingerDAOImpl implements SingerDAO {
 			 * pstmt.setInt(4, currPageNo * number); pstmt.setInt(5, number); } }
 			 */
 
+
+			if (singer_initial != null && !(singer_initial = singer_initial.trim()).equals("")) {
+				pstmt.setString(1, singer_initial);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else if (singer_areaId != null && !(singer_areaId = singer_areaId.trim()).equals("")) {
+				pstmt.setString(1, singer_areaId);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else if (singer_sex != null && !(singer_sex = singer_sex.trim()).equals("")) {
+				pstmt.setString(1, singer_sex);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else if (singer_type != null && !(singer_type = singer_type.trim()).equals("")) {
+				pstmt.setString(1, singer_type);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else {
+				pstmt.setInt(1, currPageNo * number);
+				pstmt.setInt(2, number);
+			}
 			rs = pstmt.executeQuery();
 
 			if (rs != null) {
@@ -349,7 +371,10 @@ public class SingerDAOImpl implements SingerDAO {
 		return singerList;
 	}
 
-	public SingerPo findSingerById(int singer_Id) {
+	/**
+	 * 根据id查找歌手信息
+	 */
+	public SingerPo findSingerById(int singerId) {
 		SingerPo singer = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -357,9 +382,9 @@ public class SingerDAOImpl implements SingerDAO {
 		DBConnection dbConn = DBConnection.getInstance();
 		try {
 			conn = dbConn.getConnection();
-			String sql = "select * from singer where singer_id = ?";
+			String sql = "select * from singer where singer_id =?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, singer_Id);
+			pstmt.setInt(1, singerId);
 			rs = pstmt.executeQuery();
 			if (rs != null && rs.next()) {
 				singer = new SingerPo();
@@ -377,7 +402,7 @@ public class SingerDAOImpl implements SingerDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			dbConn.close(conn, pstmt, rs);
 		}
 		return singer;
