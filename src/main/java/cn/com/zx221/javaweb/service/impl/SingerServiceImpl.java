@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.zx221.javaweb.dao.DAOFactory;
+import cn.com.zx221.javaweb.dao.ICdDAO;
 import cn.com.zx221.javaweb.dao.SingerDAO;
 import cn.com.zx221.javaweb.po.SingerPo;
 import cn.com.zx221.javaweb.service.SingerService;
@@ -12,6 +13,7 @@ import cn.com.zx221.javaweb.vo.SingerVo;
 
 public class SingerServiceImpl implements SingerService {
 	private SingerDAO singerDAO = DAOFactory.getFactoryInstance().createSingerDAO();
+	private ICdDAO cdDAO = DAOFactory.getFactoryInstance().createCdDAO();
     public int PageNumber(String singer_initial, String areaId, String singer_sex, String singer_type) {
     	int sumCount = this.singerDAO.singerCount(singer_initial, areaId, singer_sex, singer_type);
 		//System.out.println(sumCount);
@@ -23,9 +25,9 @@ public class SingerServiceImpl implements SingerService {
 		return pageNumber;
     }
 
-	public List<SingerVo> findSinger(int currPageNo,String singer_initial, String areaId, String singer_sex, String singer_type) {
+	public List<SingerVo> findSinger(int currPageNo,String singer_initial, String singer_areaId, String singer_sex, String singer_type) {
 		List<SingerVo> singerList = null;
-		int sumCount = this.singerDAO.singerCount(singer_initial, areaId, singer_sex, singer_type);
+		int sumCount = this.singerDAO.singerCount(singer_initial, singer_areaId, singer_sex, singer_type);
 		//System.out.println(sumCount);
 		// 计算总页码数
 		int pageNumber = sumCount / Constant.SINGERR_PAGE_RECORD_COUNT;
@@ -38,7 +40,7 @@ public class SingerServiceImpl implements SingerService {
 		} else if (currPageNo >= pageNumber) {
 			currPageNo = pageNumber;
 		}
-		List<SingerPo> singerPoList = this.singerDAO.findSinger(currPageNo,Constant.SINGERR_PAGE_RECORD_COUNT,singer_initial, areaId, singer_sex, singer_type);
+		List<SingerPo> singerPoList = this.singerDAO.findSinger(currPageNo,Constant.SINGERR_PAGE_RECORD_COUNT,singer_initial, singer_areaId, singer_sex, singer_type);
 		singerList = new ArrayList<SingerVo>();
 		SingerVo vo = null;
 			if (singerPoList != null) {
@@ -49,5 +51,13 @@ public class SingerServiceImpl implements SingerService {
 				}
 			}
 		return singerList;
+	}
+	public SingerVo findSingerById(int singer_id) {
+		SingerVo singerVo = null;
+		SingerPo singerPo = this.singerDAO.findSingerById(singer_id);
+		singerVo = new SingerVo(singerPo);
+		int cdCount = cdDAO.countCDBySingerId(singer_id);
+		singerVo.setCountCD(cdCount);
+		return singerVo;
 	}
 }

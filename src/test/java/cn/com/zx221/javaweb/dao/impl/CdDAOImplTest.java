@@ -47,4 +47,9 @@ public class CdDAOImplTest {
 		List<CdPo> list = dao.findCDByName("明天");
 		Assert.assertEquals(2, list.size());
 	}
+	@Test
+	public void countCDBySingerId() {
+		int count = dao.countCDBySingerId(1);
+		System.out.println(count);
+	}
 }

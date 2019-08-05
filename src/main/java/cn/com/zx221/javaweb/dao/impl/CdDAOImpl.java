@@ -59,7 +59,6 @@ public class CdDAOImpl implements ICdDAO {
 				pstmt.setTimestamp(1, startTime);
 				pstmt.setTimestamp(2, endTime);
 			}
-
 			rs = pstmt.executeQuery();
 			if (rs != null) {
 				while (rs.next()) {
@@ -200,6 +199,30 @@ public class CdDAOImpl implements ICdDAO {
 		}
 		return result;
 	}
-	
-	
+	/*
+	 * 根据歌手id查询cd数量
+	 */
+	public int countCDBySingerId(int cdSingerId) {
+		int count = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		DBConnection dbCon = DBConnection.getInstance();
+		conn = dbCon.getConnection();
+		String sql = "select count(*) from cd where cd_singerId = ?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cdSingerId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			dbCon.close(conn, pstmt, rs);
+		}
+		return count;
+	}
 }

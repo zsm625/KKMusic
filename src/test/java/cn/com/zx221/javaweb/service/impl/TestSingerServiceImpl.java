@@ -19,8 +19,14 @@ public class TestSingerServiceImpl {
 	}
 	@Test
 	public void testFindSinger() {
-		List<SingerVo> singerList = this.singer.findSinger(2,null, null, null, null);
+		List<SingerVo> singerList = this.singer.findSinger(1,"热门","港台","男","摇滚");
 		System.out.println(singerList.size());
-		Assert.assertEquals("h", singerList.get(9).getSinger_initial());
+		//Assert.assertEquals("d", singerList.get(9).getSinger_initial());
 	}
+	@Test
+	public void testFindSingerById() {
+		SingerVo singerVo = this.singer.findSingerById(1);
+		System.out.println(singerVo.getSinger_name());
+	}
+
 }

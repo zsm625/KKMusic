@@ -17,13 +17,12 @@
   <servlet-mapping>
     <servlet-name>SingerServlet</servlet-name>
     <url-pattern>/singerServlet</url-pattern>
-    </servlet-mapping>
-   <servlet>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <servlet-name>CdShowServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.CdShowServlet</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>CdShowServlet</servlet-name>
     <url-pattern>/cdShowServlet</url-pattern>
@@ -37,5 +36,15 @@
   <servlet-mapping>
     <servlet-name>Test</servlet-name>
     <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SingerDetailServlet</display-name>
+    <servlet-name>SingerDetailServlet</servlet-name>
+    <servlet-class>cn.com.zx221.javaweb.servlet.SingerDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SingerDetailServlet</servlet-name>
+    <url-pattern>/singerDetailServlet</url-pattern>
   </servlet-mapping>
 </web-app>

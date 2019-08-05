@@ -6,6 +6,8 @@ import cn.com.zx221.javaweb.po.SingerPo;
 
 public class SingerVo extends SingerPo {
 	private SingerPo singerPo;
+	//扩展属性
+	private int countCD;
 	public SingerVo(SingerPo singerPo) {
 		this.singerPo = singerPo;
 	}
@@ -64,6 +66,11 @@ public class SingerVo extends SingerPo {
 		// TODO Auto-generated method stub
 		return singerPo.getSinger_type();
 	}
-	
+	public int getCountCD() {
+		return countCD;
+	}
+	public void setCountCD(int countCD) {
+		this.countCD = countCD;
+	}
 	
 }

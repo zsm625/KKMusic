@@ -24,16 +24,30 @@ public class SingerServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		SingerService singerService = ServiceFactory.getFactoryInstance().createSingerService();
-		List<SingerVo> singerList = singerService.findSinger(2,null, null, null, null);
-		System.out.println(singerList.size());
+		String keyword = request.getParameter("keyword");
+		String singer_initial = "热门";
+		String singer_area = "全部";
+		String singer_sex = "全部";
+		String singer_type = "全部";
+		if (keyword != null || !(keyword.trim().equals(""))) {
+			byte[] bytes = keyword.getBytes("ISO-8859-1");
+			keyword = new String(bytes, "UTF-8");
+			if (!keyword.equals("热门,全部,全部,全部")) {
+				String[] keywords = keyword.split(",");
+				if (keywords.length != 0) {
+					singer_initial = keywords[0].trim().equals("") ? "热门" : keywords[0];
+					singer_area = keywords[1].trim().equals("") ? "全部" : keywords[1];
+					singer_sex = keywords[2].trim().equals("") ? "全部" : keywords[2];
+					singer_type = keywords[3].trim().equals("") ? "全部" : keywords[3];
+				}
+			}
+		}
+		/*System.out.println(singer_initial + singer_area + singer_sex + singer_type);*/
+
+		List<SingerVo> singerList = singerService.findSinger(1, singer_initial, singer_area, singer_sex, singer_type);
 		request.setAttribute("singerList", singerList);
-
-		int pageNumber = singerService.PageNumber(null, null, null, null);
-		request.setAttribute("pageNumber", pageNumber);
-
-		/*List<SingerVo> singerTxtList = singerService.findSingerTxt(1,null, null, null, null);
-		request.setAttribute("singerTxtList", singerTxtList);*/
 
 		request.getRequestDispatcher("/WEB-INF/jsp/singer.jsp").forward(request, response);
 	}
