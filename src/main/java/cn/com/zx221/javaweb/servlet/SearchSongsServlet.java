@@ -25,6 +25,7 @@ public class SearchSongsServlet extends HttpServlet {
 		 * 接收标签名称
 		 */
 		String songTypeName = request.getParameter("songTypeName");
+		System.out.println(songTypeName);
 		// 调用后面的service,获得页面要显示的songlist
 		ISongService songService = ServiceFactory.getFactoryInstance().createSongService();
 		List<SongListVO> songlist = songService.seacheSongList(songTypeName);

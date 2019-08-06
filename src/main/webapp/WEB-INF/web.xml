@@ -10,6 +10,15 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+    <description>歌单列表查询</description>
+    <servlet-name>SearchSongsServlet</servlet-name>
+    <servlet-class>cn.com.zx221.javaweb.servlet.SearchSongsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchSongsServlet</servlet-name>
+    <url-pattern>/searchSongsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description>是第一个demo问候的SErvlet</description>
     <servlet-name>SingerServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.SingerServlet</servlet-class>
