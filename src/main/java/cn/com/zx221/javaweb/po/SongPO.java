@@ -16,6 +16,15 @@ public class SongPO {
 	private String cyricUrl;
 	private Timestamp songTime;
 	private int songTypeId;
+	private String songPicUrl;
+	public String getSongPicUrl() {
+		return songPicUrl;
+	}
+
+	public void setSongPicUrl(String songPicUrl) {
+		this.songPicUrl = songPicUrl;
+	}
+
 	public int getSongId() {
 		return songId;
 	}

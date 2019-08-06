@@ -2,6 +2,7 @@ package cn.com.zx221.javaweb.po;
 
 public class SongListPO {
 	private int songlistUserId;
+	
 	private String songlistName;
 	private int songlistTypeId;
 	private int songlistAccessCount;
@@ -9,6 +10,14 @@ public class SongListPO {
 	private int songlistCollection;
 	private String songlistTags;
 	private int songlistId;
+    private String songlistPicUrl;
+	public String getSonglistPicUrl() {
+		return songlistPicUrl;
+	}
+
+	public void setSonglistPicUrl(String songlistPicUrl) {
+		this.songlistPicUrl = songlistPicUrl;
+	}
 
 	public int getSonglistId() {
 		return songlistId;
