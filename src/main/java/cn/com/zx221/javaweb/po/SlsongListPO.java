@@ -3,9 +3,6 @@ package cn.com.zx221.javaweb.po;
 import java.sql.Timestamp;
 
 /**
- * ¸èÇú¸èµ¥±í
- * 
- * @author 25070
  *
  */
 public class SlsongListPO {
