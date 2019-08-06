@@ -63,7 +63,7 @@ public class ServiceFactory {
 	 */
 	public ICdService createCdService() {
 		ICdService cd = null;
-		String clsName = props.getProperty("CdService");
+		String clsName = props.getProperty("cdService");
 		try {
 			Class cls = Class.forName(clsName);
 			cd = (ICdService)cls.newInstance();
