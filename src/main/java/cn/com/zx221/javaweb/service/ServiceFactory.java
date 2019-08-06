@@ -32,28 +32,7 @@ public class ServiceFactory {
 		}
 
 	}
-<<<<<<< HEAD
-	
-	
-    private Object createObject(String clsName)throws Exception{
-    	Object obj = null;
-    	// 加载类
-    	Class cls = Class.forName(clsName);
-    	// 反射产生对象
-    	obj = cls.newInstance();
-    	return obj;
-    }
-    
-    public ISongService createSongService() {
-    	try {
-			return (ISongService)this.createObject(props.getProperty("songService"));
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-    }
-=======
 
->>>>>>> refs/remotes/origin/master
 	/**
 	 * 创建工厂实例
 	 * 
@@ -129,4 +108,5 @@ public class ServiceFactory {
 		}
 		return song;
 	}
+
 }
