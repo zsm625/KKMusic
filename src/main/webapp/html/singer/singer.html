@@ -21,32 +21,39 @@
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#mod-singerlist").load("../../singerServlet");
-	});
+               var item = new Array("热门","全部","全部","全部");
+               $(".js_index .singer_tag__item").click(function() {
+            	   $(this).css("background","#31c27c").siblings().css("background","none"); 
+							var singer_initial = this.innerHTML;
+							item[0] = singer_initial;
+								$("#mod-singerlist").load("../../singerServlet?keyword="+item);
+								alert(item);
+						});
+						$(".js_area .singer_tag__item").click(function() {
+							var singer_area = this.innerHTML;
+							item[1] = singer_area;
+								$("#mod-singerlist").load("../../singerServlet?keyword="+item);
+								alert(item);
+						});
+						$(".js_sex .singer_tag__item").click(function() {
+							var singer_sex = this.innerHTML;
+							item[2] = singer_sex;
+								$("#mod-singerlist").load("../../singerServlet?keyword="+item);
+								alert(item);
+						});
+						$(".js_genre .singer_tag__item").click(function() {
+							var singer_genre = this.innerHTML;
+							item[3] = singer_genre;
+								$("#mod-singerlist").load("../../singerServlet?keyword="+item);
+								alert(item);
+						});
+						if(item=='热门,全部,全部,全部'){
+						$("#mod-singerlist").load("../../singerServlet?keyword="+item);
+						}
+
+					});
 </script>
-<!-- <script>
-	document.domain = 'qq.com';
-</script>
-          
-<script id="mod_spt">
-if(window.location.protocol!='https:')window.location.replace(window.location.href.replace('http://', 'https://'));
-(function(m, o, d, u, l, a, r) {
-	if(m[o]) {return;}  
-	function f(n) { 
-		return function() { r.push(n, arguments); return a; }
-	}  
-	m[o] = a = { 
-		args: (r = []),	resourceMap : f(0),	async: f(1)
-	};
-	u = d.createElement("script");  
-	u.id = o + "node"; 
-	u.async = true;  
-	u.src = "//y.gtimg.cn/c/=/music/portal/js/common/map.js,/music/portal/js/common/music/mod.js?r=" + parseInt(new Date()/600000) ;  
-	l = d.getElementsByTagName("head")[0];  
-	l.appendChild(u);
-})(window, "require", document); 
-window.SPD={_timing:{},_start:(new Date()),mark:function(a,b){this._timing[a]=(b||new Date())-this._start}};
-</script> -->
+
 <link rel="stylesheet" href="../../css/singer/layout_0412.css" />
 <link rel="stylesheet" href="../../css/singer/singer.css" />
 
@@ -217,16 +224,16 @@ window.SPD={_timing:{},_start:(new Date()),mark:function(a,b){this._timing[a]=(b
 			</div>
 			<div class="mod_slide singer_push_slide">
 				<a href="javascript:;" class="slider__prev js_jump"
-					data-stat="y_new.singerlist.header.pager" data-p="prev" style="display:none"><i
-					class="icon_txt">上一页</i></a> <a href="javascript:;"
-					class="slider__next js_jump"
-					data-stat="y_new.singerlist.header.pager" data-p="next" style="display:none"><i
-					class="icon_txt">下一页</i></a>
+					data-stat="y_new.singerlist.header.pager" data-p="prev"
+					style="display: none"><i class="icon_txt">上一页</i></a> <a
+					href="javascript:;" class="slider__next js_jump"
+					data-stat="y_new.singerlist.header.pager" data-p="next"
+					style="display: none"><i class="icon_txt">下一页</i></a>
 				<ul class="singer_push_list slide__list">
 				</ul>
 			</div>
 			<div class="mod_slide_switch js_switch"
-				data-stat="y_new.singerlist.header.pager" style="display:none"></div>
+				data-stat="y_new.singerlist.header.pager" style="display: none"></div>
 		</div>
 	</div>
 
@@ -237,7 +244,7 @@ window.SPD={_timing:{},_start:(new Date()),mark:function(a,b){this._timing[a]=(b
 
 				<a href="javascript:;"
 					class="singer_tag__item singer_tag__item--all singer_tag__item--select"
-					data-key="index" data-id="-100" hidefocus="">热门</a> <a
+					data-key="index" data-id="-100" hidefocus="" >热门</a> <a
 					href="javascript:;" class="singer_tag__item" data-key="index"
 					data-id="1" hidefocus="">A</a> <a href="javascript:;"
 					class="singer_tag__item" data-key="index" data-id="2" hidefocus="">B</a>
@@ -362,7 +369,7 @@ window.SPD={_timing:{},_start:(new Date()),mark:function(a,b){this._timing[a]=(b
 		</div>
 		<!-- jsp部分-->
 		<div id="mod-singerlist"></div>
-		
+
 	</div>
 
 	<div class="footer" role="footer">
