@@ -10,7 +10,6 @@ import cn.com.zx221.javaweb.po.UserPO;
 
 public class UserDAOImpl implements IUserDAO {
 
-	@Override
 	public UserPO searchUser(int songlistUserId) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

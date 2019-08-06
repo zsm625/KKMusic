@@ -46,7 +46,7 @@ public class DAOFactory {
 
 	public ICdDAO createCdDAO() {
 		ICdDAO cd = null;
-		String clsName = props.getProperty("CdDao");
+		String clsName = props.getProperty("cdDAO");
 		try {
 			Class cls = Class.forName(clsName);
 			cd = (ICdDAO) cls.newInstance();

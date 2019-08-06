@@ -12,7 +12,6 @@ import cn.com.zx221.javaweb.po.MVPO;
 
 public class MVDAOImpl implements IMVDao {
 
-	@Override
 	public int MVCount(String mvArea, String myType) {
 		int count = 0;
 
@@ -55,7 +54,6 @@ public class MVDAOImpl implements IMVDao {
 		return count;
 	}
 
-	@Override
 	public List<MVPO> searchCurrPageMV(int currPageNo, int number, String mvArea, String mvType) {
 		List<MVPO> mvList = null;
 		Connection conn = null;
@@ -112,7 +110,6 @@ public class MVDAOImpl implements IMVDao {
 		return mvList;
 	}
 
-	@Override
 	public int findMVPlayCount(int mvId) {
 		int count = 0;
 		Connection conn = null;

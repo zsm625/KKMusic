@@ -61,7 +61,6 @@ public class SongDAOImpl implements ISongDAO {
 		return result;
 	}
 
-	@Override
 	public List<SongListPO> searchSongList(String songTypeName) {
 		List<SongListPO> songList = null;
 		Connection conn = null;
@@ -109,7 +108,6 @@ public class SongDAOImpl implements ISongDAO {
 		return songList;
 	}
 
-	@Override
 	public List<SongPO> searchSongPlayImfo() {
 		// TODO Auto-generated method stub
 		return null;
