@@ -1,5 +1,6 @@
 package cn.com.zx221.javaweb.vo;
 
+import cn.com.zx221.javaweb.po.CdPo;
 import cn.com.zx221.javaweb.po.SongPO;
 
 /**
@@ -11,6 +12,7 @@ import cn.com.zx221.javaweb.po.SongPO;
  */
 public class SongVo extends SongPO{
 	private SongPO po;
+	private CdPo cdPo;
 	
 	public SongVo(SongPO po) {
 		this.po = po;
@@ -71,6 +73,14 @@ public class SongVo extends SongPO{
 	@Override
 	public String getSongTime() {
 		return po.getSongTime();
+	}
+
+	public CdPo getCdPo() {
+		return cdPo;
+	}
+
+	public void setCdPo(CdPo cdPo) {
+		this.cdPo = cdPo;
 	}
 
 	

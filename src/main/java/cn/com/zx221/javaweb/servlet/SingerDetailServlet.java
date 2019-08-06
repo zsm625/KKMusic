@@ -29,7 +29,7 @@ public class SingerDetailServlet extends HttpServlet {
 		System.out.println(singer_id);
 		SingerService singerService = ServiceFactory.getFactoryInstance().createSingerService();
 		SingerVo singerVo = singerService.findSingerById(singer_id);
-		System.out.println(singerVo);
+		System.out.println(singerVo.getSongList().size());
 		//System.out.println(singerVo.getSinger_areaId());
 		request.setAttribute("singerVo", singerVo);
 		request.getRequestDispatcher("/WEB-INF/jsp/singerDetail.jsp").forward(request, response);

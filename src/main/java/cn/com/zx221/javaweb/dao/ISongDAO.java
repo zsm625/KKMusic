@@ -21,6 +21,8 @@ public interface ISongDAO {
 	 * @return
 	 */
 	public List<SongPO> findSongsByCdId(int cdId);
+	public int countSongBySingerId(int song_singerId);
+	public List<SongPO> findSongBySingerId(int song_singerId);
 
 	/*
 	 * 查询歌单列表

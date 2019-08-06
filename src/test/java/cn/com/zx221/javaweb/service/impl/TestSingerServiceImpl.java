@@ -25,8 +25,11 @@ public class TestSingerServiceImpl {
 	}
 	@Test
 	public void testFindSingerById() {
-		SingerVo singerVo = this.singer.findSingerById(1);
-		System.out.println(singerVo.getSinger_name());
+		SingerVo singerVo = this.singer.findSingerById(2);
+		/*System.out.println(singerVo.getCountSong());
+		System.out.println(singerVo.getSongList().get(1).getSongName());
+		System.out.println(singerVo.getCdList().get(1).getCd_name());*/
+		System.out.println(singerVo.getSongList().get(0).getCdPo().getCd_name());
 	}
 
 }
