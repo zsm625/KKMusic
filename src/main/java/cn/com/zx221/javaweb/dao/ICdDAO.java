@@ -27,4 +27,7 @@ public interface ICdDAO {
 	//根据歌手id查询cd数量
 	public int countCDBySingerId(int cdSingerId);
 	
+	//根据歌手id查询查询cd信息
+	public List<CdPo> fingCdBySingerId(int cd_SingerId);
+	
 }
