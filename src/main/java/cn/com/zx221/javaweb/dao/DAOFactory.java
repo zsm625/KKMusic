@@ -32,6 +32,7 @@ public class DAOFactory {
 
 	}
 
+<<<<<<< HEAD
 	public ISongDAO createSongDAO() {
 		ISongDAO dao = null;
 		try {
@@ -65,6 +66,8 @@ public class DAOFactory {
 		return obj;
 	}
 
+=======
+>>>>>>> refs/remotes/origin/master
 	/**
 	 * 创建工厂实例
 	 * 
@@ -77,4 +80,73 @@ public class DAOFactory {
 		return factory;
 	}
 
+<<<<<<< HEAD
+=======
+	public ICdDAO createCdDAO() {
+		ICdDAO cd = null;
+		String clsName = props.getProperty("CdDao");
+		try {
+			Class cls = Class.forName(clsName);
+			cd = (ICdDAO)cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cd;
+	}
+	/**
+	 * 反射产生对象
+	 * 
+	 * @param clsName
+	 * @return
+	 * @throws Exception
+	 */
+	private Object createObject(String clsName) throws Exception {
+		Object obj = null;
+		Class cls = Class.forName(clsName);
+		obj = cls.newInstance();
+		return obj;
+	}
+
+	public SingerDAO createSingerDAO() {
+		SingerDAO dao = null;
+		try {
+			dao = (SingerDAO) this.createObject(this.props.getProperty("singerDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dao;
+	}
+		String clsName = props.getProperty("CdDao");
+
+
+	
+	/**
+	 * 创建ISongDAO实例
+	 * 
+	 * @author ZSM
+	 * @return
+	 */
+	public ISongDAO createSongDAO() {
+		ISongDAO dao = null;
+		try {
+			dao = (ISongDAO) this.createObject(this.props.getProperty("songDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dao;
+	}
+	
+	public IMVDao creatMVDAo() {
+		IMVDao mv = null;
+		String clsName = props.getProperty("MVDao");
+		try {
+			Class cls = Class.forName(clsName);
+			mv = (IMVDao) cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+
+>>>>>>> refs/remotes/origin/master
 }

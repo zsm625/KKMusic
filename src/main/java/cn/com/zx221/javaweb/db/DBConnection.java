@@ -1,8 +1,11 @@
 package cn.com.zx221.javaweb.db;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+<<<<<<< HEAD
+=======
+import java.sql.PreparedStatement;
+>>>>>>> refs/remotes/origin/master
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,7 +17,6 @@ import com.alibaba.druid.pool.DruidDataSource;
  * 数据库连接
  * 
  * @author Administrator
- *
  */
 public class DBConnection {
 	private static DBConnection dbCon;
@@ -70,6 +72,7 @@ public class DBConnection {
 		return conn;
 	}
 
+<<<<<<< HEAD
 	public void close(Connection conn, Statement stmt, ResultSet rs) {
 		try {
 			if (rs != null)
@@ -79,6 +82,14 @@ public class DBConnection {
 			if (conn != null)
 				conn.close();
 		} catch (Exception e) {
+=======
+	public void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		try {
+			conn.close();
+			pstmt.close();
+			rs.close();
+		} catch (SQLException e) {
+>>>>>>> refs/remotes/origin/master
 			e.printStackTrace();
 		}
 	}
