@@ -147,7 +147,7 @@
 					<version>2.2</version>
 					<configuration>
 						<port>81</port>
-						<path>/abc</path>
+						<path>/</path>
 					</configuration>
 				</plugin>
 
