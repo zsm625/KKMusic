@@ -2,12 +2,7 @@ package cn.com.zx221.javaweb.dao;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Properties;
-
 
 /**
  * 实现工厂生产DAO实例
@@ -49,6 +44,18 @@ public class DAOFactory {
 		return factory;
 	}
 
+	public ICdDAO createCdDAO() {
+		ICdDAO cd = null;
+		String clsName = props.getProperty("CdDao");
+		try {
+			Class cls = Class.forName(clsName);
+			cd = (ICdDAO) cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cd;
+	}
+
 	/**
 	 * 反射产生对象
 	 * 
@@ -63,38 +70,10 @@ public class DAOFactory {
 		return obj;
 	}
 
-	public SingerDAO createSingerDAO() {
-		SingerDAO dao = null;
-		try {
-			dao = (SingerDAO) this.createObject(this.props.getProperty("singerDAO"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return dao;
-	}
-
-	/**
-	 * 
-	 * @author ZSM
-	 * @return
-	 */
-	public ICdDAO createCdDAO() {
-		ICdDAO cd = null;
-		String clsName = props.getProperty("CdDAO");
-		try {
-			Class cls = Class.forName(clsName);
-			cd = (ICdDAO) cls.newInstance();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return cd;
-	}
-
-
-	
 	/**
 	 * 创建ISongDAO实例
-	 *@author ZSM
+	 * 
+	 * @author ZSM
 	 * @return
 	 */
 	public ISongDAO createSongDAO() {
@@ -106,4 +85,39 @@ public class DAOFactory {
 		}
 		return dao;
 	}
+
+	public IMVDao creatMVDAo() {
+		IMVDao mv = null;
+		String clsName = props.getProperty("MVDao");
+		try {
+			Class cls = Class.forName(clsName);
+			mv = (IMVDao) cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+
+	public SingerDAO createSingerDAO() {
+		SingerDAO dao = null;
+		try {
+			dao = (SingerDAO) this.createObject(this.props.getProperty("singerDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dao;
+	}
+
+	public IUserDAO createUserDAO() {
+		IUserDAO dao = null;
+		try {
+			// 创建IFoodDAO对象（new 配置文件中foodDAO对应的实现类）
+			dao = (IUserDAO) this.createObject(this.props.getProperty("userDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return dao;
+	}
+
 }

@@ -112,7 +112,7 @@ public class CdDAOImpl implements ICdDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbCon.close(conn, pstmt, rs);
 		}
 		return cdPo;
@@ -133,7 +133,7 @@ public class CdDAOImpl implements ICdDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+cdName+"%");
+			pstmt.setString(1, "%" + cdName + "%");
 			rs = pstmt.executeQuery();
 			if (rs != null) {
 				result = new ArrayList<CdPo>();
@@ -152,14 +152,14 @@ public class CdDAOImpl implements ICdDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbCon.close(conn, pstmt, rs);
 		}
 		return result;
-		
+
 	}
 
-	public List<CdPo> findCDBySingerType(Timestamp startTime,Timestamp endTime,String singerType) {
+	public List<CdPo> findCDBySingerType(Timestamp startTime, Timestamp endTime, String singerType) {
 		List<CdPo> result = null;
 		CdPo cdPo = null;
 		Connection conn = null;
@@ -169,7 +169,7 @@ public class CdDAOImpl implements ICdDAO {
 		conn = dbCon.getConnection();
 		String str = " cd_publishDate between ? and ? order by cd_collectionCount limit 0,5 ";
 		String sql = "select cd.*,singer.singer_id , singer.singer_type from cd,singer "
-				+ " where cd.cd_singerId=singer.singer_id and singer.singer_type= ? and "+str;
+				+ " where cd.cd_singerId=singer.singer_id and singer.singer_type= ? and " + str;
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -194,11 +194,12 @@ public class CdDAOImpl implements ICdDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbCon.close(conn, pstmt, rs);
 		}
 		return result;
 	}
+
 	/*
 	 * 根据歌手id查询cd数量
 	 */
@@ -220,7 +221,7 @@ public class CdDAOImpl implements ICdDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbCon.close(conn, pstmt, rs);
 		}
 		return count;
