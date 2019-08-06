@@ -94,5 +94,4 @@ public class CdPo {
 		this.cd_synopsis = cd_synopsis;
 	}
 
-
 }

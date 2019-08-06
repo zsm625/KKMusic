@@ -7,18 +7,25 @@ import cn.com.zx221.javaweb.po.CdPo;
 
 /**
  * 专辑数据库操作
+ * 
  * @author ZSM
  *
  * @time 2019年8月2日下午12:03:13
  */
 public interface ICdDAO {
-	//根据时间
-//	public List<CdPo> findCDByDate(Timestamp startTime,Timestamp endTime);
-	
-	//根据地区查询
-	public List<CdPo> findCD(Timestamp startTime,Timestamp endTime,String area,String singerName);
-	
-	//根据歌手查询，如华语群星则是影视OST
-	
-//	public List<CdPo> findCDBySinger(String singerName);
+	// 根据id查询具体的某一个专辑
+	public CdPo findCDById(int cdId);
+
+	// 根据地区查询
+	public List<CdPo> findCD(Timestamp startTime, Timestamp endTime, String area, String singerName);
+
+	// 根据歌手类型查找
+	public List<CdPo> findCDBySingerType(Timestamp startTime, Timestamp endTime, String singerType);
+
+	// 根据专辑名找专辑
+	public List<CdPo> findCDByName(String cdName);
+
+	// 根据歌手id查询cd数量
+	public int countCDBySingerId(int cdSingerId);
+
 }

@@ -11,6 +11,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 
 /**
  * 数据库连接
+ * 
  * @author Administrator
  */
 public class DBConnection {
@@ -19,18 +20,39 @@ public class DBConnection {
 	private String username;
 	private String url;
 	private String password;
+
 	private DBConnection() {
 		try {
-		this.init();
-		}catch(Exception e) {
+			this.init();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
+	private void init() {
+		Properties props = new Properties();
+		InputStream inStream = DBConnection.class.getClassLoader().getResourceAsStream("db.properties");
+		try {
+			props.load(inStream);
+
+			this.url = props.getProperty("url");
+			this.username = props.getProperty("username");
+			this.password = props.getProperty("password");
+
+			this.druidDataSource = new DruidDataSource();
+			this.druidDataSource.setUrl(this.url);
+			this.druidDataSource.setUsername(this.username);
+			this.druidDataSource.setPassword(this.password);
+			this.druidDataSource.init();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public static DBConnection getInstance() {
-		if(dbCon ==null) {
+		if (dbCon == null) {
 			dbCon = new DBConnection();
 		}
 		return dbCon;
@@ -45,8 +67,8 @@ public class DBConnection {
 		}
 		return conn;
 	}
-	
-	public void close(Connection conn,PreparedStatement pstmt,ResultSet rs) {
+
+	public void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		try {
 			conn.close();
 			pstmt.close();
@@ -54,27 +76,5 @@ public class DBConnection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private void init() {
-		Properties props = new Properties();
-		InputStream inStream = DBConnection.class.getClassLoader().getResourceAsStream("db.properties");
-		try {
-			props.load(inStream);
-		
-			this.url = props.getProperty("url");
-			this.username = props.getProperty("username");
-			this.password = props.getProperty("password");
-			
-			this.druidDataSource = new DruidDataSource();
-			this.druidDataSource.setUrl(this.url);
-			this.druidDataSource.setUsername(this.username);
-			this.druidDataSource.setPassword(this.password);
-			this.druidDataSource.init();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 	}
 }

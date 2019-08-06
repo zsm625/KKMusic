@@ -11,6 +11,9 @@ public class SingerPo {
     private String singer_introduce;
     private Timestamp singer_birthday;
     private String singer_photoUrl;
+    private String singer_sex;
+    private String singer_initial;
+    private String singer_type;
 	public int getSinger_id() {
 		return singer_id;
 	}
@@ -58,6 +61,24 @@ public class SingerPo {
 	}
 	public void setSinger_photoUrl(String singer_photoUrl) {
 		this.singer_photoUrl = singer_photoUrl;
+	}
+	public String getSinger_sex() {
+		return singer_sex;
+	}
+	public void setSinger_sex(String singer_sex) {
+		this.singer_sex = singer_sex;
+	}
+	public String getSinger_initial() {
+		return singer_initial;
+	}
+	public void setSinger_initial(String singer_initial) {
+		this.singer_initial = singer_initial;
+	}
+	public String getSinger_type() {
+		return singer_type;
+	}
+	public void setSinger_type(String singer_type) {
+		this.singer_type = singer_type;
 	}
     
 }
