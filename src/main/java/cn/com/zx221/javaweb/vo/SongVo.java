@@ -15,6 +15,7 @@ import cn.com.zx221.javaweb.po.SongPO;
  */
 public class SongVo extends SongPO {
 	private SongPO po;
+
 	private CdPo cdPo;
 	private SingerPo singerpo;
 	private String cd_name;
@@ -127,5 +128,4 @@ public class SongVo extends SongPO {
 	public void setCdPo(CdPo cdPo) {
 		this.cdPo = cdPo;
 	}
-
 }

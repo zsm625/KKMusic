@@ -177,7 +177,8 @@
 	height: 12px;
 	background-position: -180px -20px;
 	margin-right: 5px;
-	vertical-align: -1px
+	vertical-align: -1px;
+	
 }
 
 .mod_cover {
@@ -252,7 +253,7 @@
 
 .mod_cover:hover .mod_cover__icon_play {
 	background: 0 0\9;
-	filter: progid:dximagetransform.microsoft.alphaimageloader(src="../img/cover_play.png", sizingmethod="crop") alpha(opacity=90);
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src="../images/icon_play.png", sizingmethod="crop") alpha(opacity=90);
 	opacity: .9;
 	-webkit-transform: scale(1) translateZ(0);
 	-webkit-transition-property: opacity, -webkit-transform;
@@ -265,8 +266,8 @@
 
 .mod_cover:hover .mod_cover__icon_play,
 .mod_cover__icon_play {
-	background-image: url(../img/cover_play.png?max_age=2592000&v=88abebcbc1242dbbbbc836cc3e04a006);
-	background-image: -webkit-image-set(url(../img/cover_play.png?max_age=2592000&v=88abebcbc1242dbbbbc836cc3e04a006&v=88abebcbc1242dbbbbc836cc3e04a006) 1x, url(img/cover_play@2x.png?max_age=2592000&v=88abebcbc1242dbbbbc836cc3e04a006&v=88abebcbc1242dbbbbc836cc3e04a006&v=10e4305a2558d496548955434eaa30d9) 2x)
+	background-image: url(../images/mvImgs/cover_play.png);
+	background-image: -webkit-image-set(url(../images/mvImgs/cover_play.png) 2x)
 }
 
 .mod_cover:hover .mod_cover__icon_play {

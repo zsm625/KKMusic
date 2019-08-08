@@ -20,6 +20,9 @@ import cn.com.zx221.javaweb.vo.SongListVO;
 import cn.com.zx221.javaweb.vo.SongVo;
 
 public class SongServiceImpl implements ISongService {
+
+	private ISongDAO songDAO = DAOFactory.getFactoryInstance().createSongDAO();
+
 	private IUserDAO userDAO = DAOFactory.getFactoryInstance().createUserDAO();
 
 	private ISongDAO songDao = DAOFactory.getFactoryInstance().createSongDAO();
