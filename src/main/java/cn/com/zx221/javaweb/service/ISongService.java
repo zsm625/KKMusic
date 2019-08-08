@@ -2,6 +2,7 @@ package cn.com.zx221.javaweb.service;
 
 import java.util.List;
 
+import cn.com.zx221.javaweb.vo.SlsongListVO;
 import cn.com.zx221.javaweb.vo.SongListVO;
 import cn.com.zx221.javaweb.vo.SongVo;
 
@@ -30,5 +31,10 @@ public interface ISongService {
 	 */
 	public SongVo findSongById(int songId);
 	// 在歌曲详细页面根据songListId显示歌曲列表
+	// 查询歌曲歌单表
+	public List<SlsongListVO> searchSlsongList(int songlistId);
+
+	// 通过songlistid查询歌单列表中的某一项
+	public SongListVO searchSongList(int songlistId);
 
 }

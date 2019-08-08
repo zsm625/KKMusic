@@ -119,22 +119,21 @@ public class DAOFactory {
 		}
 		return dao;
 	}
-	
+
 	/**
 	 * SongListDAO
-	 *@author ZSM
+	 * 
+	 * @author ZSM
 	 * @return
 	 */
 	public ISongListDAO createSongListDAO() {
-		ISongListDAO songList = null;
-		String clsName = props.getProperty("songListDAO");
+		ISongListDAO dao = null;
 		try {
-			Class cls = Class.forName(clsName);
-			songList = (ISongListDAO) cls.newInstance();
+			dao = (ISongListDAO)this.createObject(this.props.getProperty("songListDAO"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return songList;
+		return dao;
 	}
 
 }

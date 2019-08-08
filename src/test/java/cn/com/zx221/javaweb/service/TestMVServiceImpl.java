@@ -22,7 +22,7 @@ public class TestMVServiceImpl {
 
 	@Test
 	public void testSelectMV() {
-		List<MVVO> mvList = this.mvService.selectMV(4, 20, null, "儿歌");
+		List<MVVO> mvList = this.mvService.selectMV(1, 1, null, null);
 		System.out.println("mvList--->" + mvList);
 		if (mvList != null && mvList.size() > 0) {
 			for (int i = 0; i < mvList.size(); i++) {

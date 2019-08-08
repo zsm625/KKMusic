@@ -64,7 +64,7 @@ public class SongListVO extends SongListPO {
 
 	@Override
 	public int getSonglistCollection() {
-		// TODO Auto-generated method stub
+
 		return songlistpo.getSonglistCollection();
 	}
 

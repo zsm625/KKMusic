@@ -5,10 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import cn.com.zx221.javaweb.dao.ICdDAO;
@@ -268,5 +265,40 @@ public class CdDAOImpl implements ICdDAO {
 			dbCon.close(conn, pstmt, rs);
 		}
 		return cdList;
+	}
+
+	/**
+	 * 通过歌曲id查询专辑信息
+	 */
+	public CdPo searchCdBySongid(int songId) {
+		CdPo cdPo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		DBConnection dbConn = DBConnection.getInstance();
+		try {
+			conn = dbConn.getConnection();
+			String sql = "select * from cd,song where song.song_cd_id=cd.cd_id and song.song_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, songId);
+			rs = pstmt.executeQuery();
+			if (rs != null && rs.next()) {
+				cdPo = new CdPo();
+				cdPo.setCd_name(rs.getString("cd_name"));
+				cdPo.setCd_id(rs.getInt("cd_id"));
+				cdPo.setCd_publishDate(Utils.getStrTime(rs.getTimestamp("cd_publishDate")));
+				cdPo.setCd_coverUrl(rs.getString("cd_coverUrl"));
+				cdPo.setCd_collectionCount(rs.getInt("cd_collectionCount"));
+				cdPo.setCd_singerId(rs.getInt("cd_singerId"));
+				cdPo.setCd_introduce(rs.getString("cd_introduce"));
+				cdPo.setCd_synopsis(rs.getString("cd_synopsis"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbConn.close(conn, pstmt, rs);
+		}
+		return cdPo;
 	}
 }

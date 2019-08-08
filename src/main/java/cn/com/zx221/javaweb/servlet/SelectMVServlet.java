@@ -10,35 +10,45 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.com.zx221.javaweb.service.IMVService;
-import cn.com.zx221.javaweb.service.impl.MVServiceImpl;
+import cn.com.zx221.javaweb.service.ServiceFactory;
 import cn.com.zx221.javaweb.vo.MVVO;
 
 @WebServlet("/selectMVServlet")
 public class SelectMVServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private IMVService service = new MVServiceImpl();
+
+//	private IMVService service = new MVServiceImpl();
+	IMVService service = ServiceFactory.getFactoryInstance().creatMVService();
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// String path = req.getSession().getServletContext().getRealPath("/");
 		// System.out.println(path);
 
-		// mvArea=本地&mvType=儿歌
 		String mvArea = req.getParameter("mvArea");
 		String mvType = req.getParameter("mvType");
+
 		int currPageNo = 1;// 当前页码
 		int pageSize = 5;// 每页条数
+
 		try {
 			currPageNo = Integer.parseInt(req.getParameter("currPageNo"));
 			pageSize = Integer.parseInt(req.getParameter("pageSize"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		// 获得mv集合
 		List<MVVO> list = this.service.selectMV(currPageNo, pageSize, mvArea, mvType);
 		req.setAttribute("list", list);
-		// System.out.println("list size:" + list.size());
-		req.getRequestDispatcher("html/AudioList.jsp").forward(req, resp);
+		// 获得页数
+		int maxPage = 7;
+
+		// 第几页(及当前页)
+		req.setAttribute("currPageNo", currPageNo);
+		// 共几页(及最大页)
+		req.setAttribute("maxPage", maxPage);
+		System.out.println("list size:" + list.size());
+		req.getRequestDispatcher("WEB-INF/jsp/AudioList.jsp").forward(req, resp);
 	}
 
 }

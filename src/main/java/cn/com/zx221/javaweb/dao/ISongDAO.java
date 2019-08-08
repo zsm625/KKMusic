@@ -2,6 +2,7 @@ package cn.com.zx221.javaweb.dao;
 
 import java.util.List;
 
+import cn.com.zx221.javaweb.po.SlsongListPO;
 import cn.com.zx221.javaweb.po.SongListPO;
 import cn.com.zx221.javaweb.po.SongPO;
 
@@ -22,15 +23,31 @@ public interface ISongDAO {
 	 */
 	public List<SongPO> findSongsByCdId(int cdId);
 
+	public int countSongBySingerId(int song_singerId);
+
+	public List<SongPO> findSongBySingerId(int song_singerId);
+
 	/*
 	 * 查询歌单列表
 	 */
 	public List<SongListPO> searchSongList(String songTypeName);
 
 	/*
-	 * 查看歌单列表项的播放歌曲的相关信息(歌曲 、歌手、专辑、 时长)
+	 * 查询歌曲歌单表
 	 */
 	public List<SongPO> searchSongPlayImfo();
 	
 	public SongPO findSongBySongId(int songId);
+	public List<SlsongListPO> searchSlsongList(int songlistId);
+
+	/*
+	 * 通过songid查询歌曲列表的PO(歌曲、歌手、专辑、时长)
+	 */
+	public SongPO searchSongBysongid(Integer integers);
+
+	/*
+	 * 通过songlistId查询歌单列表的信息
+	 */
+	public SongListPO searchSongList(int songlistId);
+
 }

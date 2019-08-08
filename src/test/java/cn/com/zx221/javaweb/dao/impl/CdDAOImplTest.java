@@ -44,6 +44,7 @@ public class CdDAOImplTest {
 	public void findCDByIdTest() {
 		CdPo po = dao.findCDById(3);
 		System.out.println(po.getCd_singerId());
+		System.out.println(po.getCd_name());
 	}
 
 	@Test
@@ -57,4 +58,17 @@ public class CdDAOImplTest {
 		int count = dao.countCDBySingerId(1);
 		System.out.println(count);
 	}
+
+	@Test
+	public void findCdBySingerId() {
+		List<CdPo> cdList = dao.fingCdBySingerId(1);
+		System.out.println(cdList.size());
+	}
+
+	@Test
+	public void searchCdBySongid() {
+		CdPo cdpo = dao.searchCdBySongid(1);
+		System.out.println(cdpo.getCd_name());
+	}
+
 }

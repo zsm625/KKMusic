@@ -12,7 +12,6 @@ import cn.com.zx221.javaweb.po.MVPO;
 
 public class MVDAOImpl implements IMVDao {
 
-	@Override
 	public int MVCount(String mvArea, String myType) {
 		int count = 0;
 
@@ -35,6 +34,7 @@ public class MVDAOImpl implements IMVDao {
 				sql.append(" and mv_type = ?");
 				al.add(myType);
 			}
+
 			conn = dbConn.getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
 			// 有条件，设置占位符
@@ -55,7 +55,6 @@ public class MVDAOImpl implements IMVDao {
 		return count;
 	}
 
-	@Override
 	public List<MVPO> searchCurrPageMV(int currPageNo, int number, String mvArea, String mvType) {
 		List<MVPO> mvList = null;
 		Connection conn = null;
@@ -67,23 +66,37 @@ public class MVDAOImpl implements IMVDao {
 			conn = dbConn.getConnection();
 			StringBuffer sql = new StringBuffer();
 			sql.append("select mv_id,mv_name,mv_area,mv_type");
-			sql.append(",mv_playCount,mv_introduce,mv_issue,mv_singerName");
+			sql.append(",mv_playCount,mv_introduce,mv_issue,mv_singerName,mv_url");
 			sql.append(" from mv");
 			sql.append(" where 1=1");
+
 			// 判断是否有查询条件
 			if (mvArea != null) {
-				sql.append(" and mv_area = ?");
-				al.add(mvArea);
+				mvArea = new String(mvArea.getBytes("iso-8859-1"), "utf-8");
+				if ("全部".equals(mvArea)) {
+					mvArea = null;
+				} else {
+					sql.append(" and mv_area = ?");
+					al.add(mvArea);
+				}
 			}
 			if (mvType != null) {
-				sql.append(" and mv_type = ?");
-				al.add(mvType);
+				mvType = new String(mvType.getBytes("iso-8859-1"), "utf-8");
+				if ("全部".equals(mvType)) {
+					mvType = null;
+				} else {
+					sql.append(" and mv_type = ?");
+					al.add(mvType);
+				}
 			}
+
 			sql.append(" limit ?,?");
 			pstmt = conn.prepareStatement(sql.toString());
+			System.out.println("SQL:" + sql.toString());
 			al.add((currPageNo - 1) * number);
 			al.add(number);
 			for (int i = 0; i < al.size(); i++) {
+				System.out.println("param:" + al.get(i));
 				pstmt.setObject(i + 1, al.get(i));
 			}
 			rs = pstmt.executeQuery();
@@ -99,9 +112,10 @@ public class MVDAOImpl implements IMVDao {
 					mv.setMvPlayCount(rs.getInt("mv_playCount"));
 					mv.setMvSingerName(rs.getString("mv_singerName"));
 					mv.setMvType(rs.getString("mv_type"));
+					mv.setMvUrl(rs.getString("mv_url"));
 					mvList.add(mv);
-					System.out.println(mv.getMvArea() + "  " + mv.getMvId() + "  " + mv.getMvIntroduce() + "  "
-							+ mv.getMvName() + "  " + mv.getMvPlayCount());
+					System.out.println("MVDAOImpl： " + mv.getMvArea() + "  " + mv.getMvId() + "  " + mv.getMvIntroduce()
+							+ "  " + mv.getMvName() + "  " + mv.getMvPlayCount() + mv.getMvUrl());
 				}
 			}
 		} catch (Exception e) {
@@ -112,7 +126,6 @@ public class MVDAOImpl implements IMVDao {
 		return mvList;
 	}
 
-	@Override
 	public int findMVPlayCount(int mvId) {
 		int count = 0;
 		Connection conn = null;
