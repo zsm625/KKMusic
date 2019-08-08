@@ -28,7 +28,7 @@ public class SongRelatedServlet extends HttpServlet {
 		/**
 		 * 接收songlistId
 		 */
-		String songListId = request.getParameter("songListId");
+		String songListId = request.getParameter("id");
 		int songList_id = -1;
 		try {
 			songList_id = Integer.parseInt(songListId);

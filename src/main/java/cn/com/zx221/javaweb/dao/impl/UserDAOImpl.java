@@ -10,7 +10,6 @@ import cn.com.zx221.javaweb.po.UserPO;
 
 public class UserDAOImpl implements IUserDAO {
 
-	@Override
 	public UserPO searchUser(int songlistUserId) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -32,7 +31,6 @@ public class UserDAOImpl implements IUserDAO {
 					+ " on user.user_id = songlist.songlist_userId  " + " where songlist_userId=?";
 			sql = sb.toString();
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("sql-->" + sql);
 			pstmt.setInt(1, songlistUserId);
 			rs = pstmt.executeQuery();
 			if (rs != null && rs.next()) {
