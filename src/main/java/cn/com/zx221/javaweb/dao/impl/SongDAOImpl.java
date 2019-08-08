@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -182,5 +183,44 @@ public class SongDAOImpl implements ISongDAO {
 	public List<SongPO> searchSongPlayImfo() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public SongPO findSongBySongId(int songId) {
+		SongPO po = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		DBConnection dbCon = DBConnection.getInstance();
+		conn = dbCon.getConnection();
+		String sql = " select * from song where song_id = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, songId);
+			rs = pstmt.executeQuery();
+			if (rs != null && rs.next()) {
+				po = new SongPO();
+				po.setSongId(rs.getInt("song_id"));
+				po.setSongName(rs.getString("song_name"));
+				po.setSongSinger(rs.getInt("song_singer_id"));
+				po.setMvId(rs.getInt("song_mv_id"));
+				po.setCdId(rs.getInt("song_cd_id"));
+				po.setSongPlayCount(rs.getInt("song_playcount"));
+				po.setSongDownLoadCount(rs.getInt("song_downloadCount"));
+				po.setSongCollectionCount(rs.getInt("song_collectionCount"));
+				po.setSongPublishDate(rs.getTimestamp("song_publishDate"));
+				po.setCyricUrl(rs.getString("song_url"));
+				po.setCyricUrl(rs.getString("song_cyricUrl"));
+				po.setSongTime(rs.getString("song_time"));
+				po.setSongTypeId(rs.getInt("song_typeId"));
+				po.setSongPicUrl(rs.getString("song_picUrl"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dbCon.close(conn, pstmt, rs);
+		}
+		return po;
 	}
 }

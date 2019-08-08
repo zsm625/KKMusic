@@ -13,7 +13,15 @@ import cn.com.zx221.javaweb.po.SongPO;
 public class SongVo extends SongPO{
 	private SongPO po;
 	private CdPo cdPo;
-	
+	private String singerName;
+	public String getSingerName() {
+		return singerName;
+	}
+
+	public void setSingerName(String singerName) {
+		this.singerName = singerName;
+	}
+
 	public SongVo(SongPO po) {
 		this.po = po;
 	}
@@ -26,7 +34,7 @@ public class SongVo extends SongPO{
 	@Override
 	public int getSongId() {
 		return po.getSongId();
-	}
+	} 
 
 	@Override
 	public String getSongName() {

@@ -5,12 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.com.zx221.javaweb.dao.ICdDAO;
 import cn.com.zx221.javaweb.db.DBConnection;
 import cn.com.zx221.javaweb.po.CdPo;
+import cn.com.zx221.javaweb.util.Utils;
 
 /**
  * 
@@ -65,7 +69,7 @@ public class CdDAOImpl implements ICdDAO {
 					cdPo = new CdPo();
 					cdPo.setCd_name(rs.getString("cd_name"));
 					cdPo.setCd_id(rs.getInt("cd_id"));
-					cdPo.setCd_publishDate(rs.getTimestamp("cd_publishDate"));
+					cdPo.setCd_publishDate(Utils.getStrTime(rs.getTimestamp("cd_publishDate")));
 					cdPo.setCd_coverUrl(rs.getString("cd_coverUrl"));
 					cdPo.setCd_collectionCount(rs.getInt("cd_collectionCount"));
 					cdPo.setCd_singerId(rs.getInt("cd_singerId"));
@@ -103,12 +107,13 @@ public class CdDAOImpl implements ICdDAO {
 				cdPo = new CdPo();
 				cdPo.setCd_name(rs.getString("cd_name"));
 				cdPo.setCd_id(rs.getInt("cd_id"));
-				cdPo.setCd_publishDate(rs.getTimestamp("cd_publishDate"));
+				cdPo.setCd_publishDate(Utils.getStrTime(rs.getTimestamp("cd_publishDate")));
 				cdPo.setCd_coverUrl(rs.getString("cd_coverUrl"));
 				cdPo.setCd_collectionCount(rs.getInt("cd_collectionCount"));
 				cdPo.setCd_singerId(rs.getInt("cd_singerId"));
 				cdPo.setCd_introduce(rs.getString("cd_introduce"));
 				cdPo.setCd_synopsis(rs.getString("cd_synopsis"));
+				cdPo.setCd_company(rs.getString("cd_company"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -141,7 +146,7 @@ public class CdDAOImpl implements ICdDAO {
 					cdPo = new CdPo();
 					cdPo.setCd_name(rs.getString("cd_name"));
 					cdPo.setCd_id(rs.getInt("cd_id"));
-					cdPo.setCd_publishDate(rs.getTimestamp("cd_publishDate"));
+					cdPo.setCd_publishDate(Utils.getStrTime(rs.getTimestamp("cd_publishDate")));
 					cdPo.setCd_coverUrl(rs.getString("cd_coverUrl"));
 					cdPo.setCd_collectionCount(rs.getInt("cd_collectionCount"));
 					cdPo.setCd_singerId(rs.getInt("cd_singerId"));
@@ -183,7 +188,7 @@ public class CdDAOImpl implements ICdDAO {
 					cdPo = new CdPo();
 					cdPo.setCd_name(rs.getString("cd_name"));
 					cdPo.setCd_id(rs.getInt("cd_id"));
-					cdPo.setCd_publishDate(rs.getTimestamp("cd_publishDate"));
+					cdPo.setCd_publishDate(Utils.getStrTime(rs.getTimestamp("cd_publishDate")));
 					cdPo.setCd_coverUrl(rs.getString("cd_coverUrl"));
 					cdPo.setCd_collectionCount(rs.getInt("cd_collectionCount"));
 					cdPo.setCd_singerId(rs.getInt("cd_singerId"));
@@ -248,7 +253,7 @@ public class CdDAOImpl implements ICdDAO {
 					cdPo = new CdPo();
 					cdPo.setCd_name(rs.getString("cd_name"));
 					cdPo.setCd_id(rs.getInt("cd_id"));
-					cdPo.setCd_publishDate(rs.getTimestamp("cd_publishDate"));
+					cdPo.setCd_publishDate(Utils.getStrTime(rs.getTimestamp("cd_publishDate")));
 					cdPo.setCd_coverUrl(rs.getString("cd_coverUrl"));
 					cdPo.setCd_collectionCount(rs.getInt("cd_collectionCount"));
 					cdPo.setCd_singerId(rs.getInt("cd_singerId"));

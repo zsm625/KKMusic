@@ -6,6 +6,8 @@ import java.util.List;
 import cn.com.zx221.javaweb.dao.DAOFactory;
 import cn.com.zx221.javaweb.dao.ISongDAO;
 import cn.com.zx221.javaweb.dao.IUserDAO;
+import cn.com.zx221.javaweb.dao.SingerDAO;
+import cn.com.zx221.javaweb.po.SingerPo;
 import cn.com.zx221.javaweb.po.SongListPO;
 import cn.com.zx221.javaweb.po.SongPO;
 import cn.com.zx221.javaweb.po.UserPO;
@@ -16,8 +18,8 @@ import cn.com.zx221.javaweb.vo.SongVo;
 public class SongServiceImpl implements ISongService {
 	private ISongDAO songDAO = DAOFactory.getFactoryInstance().createSongDAO();
 	private IUserDAO userDAO = DAOFactory.getFactoryInstance().createUserDAO();
-
 	private ISongDAO songDao = DAOFactory.getFactoryInstance().createSongDAO();
+	private SingerDAO singerDao = DAOFactory.getFactoryInstance().createSingerDAO();
 
 	/**
 	 * 根据专辑id查歌曲
@@ -25,10 +27,13 @@ public class SongServiceImpl implements ISongService {
 	public List<SongVo> findSongInfByCdId(int cdId) {
 		List<SongVo> result = null;
 		List<SongPO> pos = songDao.findSongsByCdId(cdId);
+		
 		if (pos != null) {
 			result = new ArrayList<SongVo>();
 			for (SongPO songPO : pos) {
 				SongVo vo = new SongVo(songPO);
+				SingerPo singer = singerDao.findSingerById(vo.getSongSinger());
+				vo.setSingerName(singer.getSinger_name());
 				result.add(vo);
 			}
 		}
@@ -52,6 +57,18 @@ public class SongServiceImpl implements ISongService {
 			songlist.add(vo);
 		}
 		return songlist;
+	}
+
+	@Override
+	public SongVo findSongById(int songId) {
+		SongVo vo = null;
+		SongPO po = songDao.findSongBySongId(songId);
+		if(po!=null) {
+			vo = new SongVo(po);
+			SingerPo singerPo = singerDao.findSingerById(po.getSongSinger());
+			vo.setSingerName(singerPo.getSinger_name());
+		}
+		return vo;
 	}
 
 }

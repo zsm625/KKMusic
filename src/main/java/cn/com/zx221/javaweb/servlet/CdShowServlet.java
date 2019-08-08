@@ -29,9 +29,6 @@ public class CdShowServlet extends HttpServlet {
 		String keyword = request.getParameter("keyword");
 		byte[] bytes = keyword.getBytes("iso-8859-1");
 		keyword = new String(bytes, "utf-8");
-		/*
-		 * String[] listTitle = Constant.CD_LIST_TITLE; String keyword = null;
-		 */
 		ICdService cdS = ServiceFactory.getFactoryInstance().createCdService();
 		List<CdVo> cdList = cdS.findCd(keyword);
 		if (cdList != null) {

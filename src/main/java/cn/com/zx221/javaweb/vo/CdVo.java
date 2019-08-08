@@ -100,7 +100,7 @@ public class CdVo extends CdPo {
 	}
 
 	@Override
-	public Timestamp getCd_publishDate() {
+	public String getCd_publishDate() {
 		return po.getCd_publishDate();
 	}
 

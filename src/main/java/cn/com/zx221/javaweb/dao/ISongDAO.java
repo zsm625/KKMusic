@@ -33,4 +33,6 @@ public interface ISongDAO {
 	 * 查看歌单列表项的播放歌曲的相关信息(歌曲 、歌手、专辑、 时长)
 	 */
 	public List<SongPO> searchSongPlayImfo();
+	
+	public SongPO findSongBySongId(int songId);
 }

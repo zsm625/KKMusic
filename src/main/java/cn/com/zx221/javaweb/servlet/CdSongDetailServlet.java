@@ -37,17 +37,11 @@ public class CdSongDetailServlet extends HttpServlet {
 		List<SongVo> songList = songService.findSongInfByCdId(cdVo.getCd_id());
 		String cd_synopsis = cdVo.getCd_synopsis();
 		String[] split = cd_synopsis.split(",");
-		System.out.println(cd_synopsis);
 		request.setAttribute("cd_synopsis", split);
 		request.setAttribute("cdVo", cdVo);
 		request.setAttribute("songList", songList);
 		request.getRequestDispatcher("/WEB-INF/jsp/cdSongDetail.jsp").forward(request, response);
 		
-		/*
-		 * JSONObject json = JSONObject.fromObject(cd_synopsis); JSONArray array =
-		 * JSONArray.fromObject(split); System.out.println(json);
-		 * System.out.println(array);
-		 */
 		
 	}
 

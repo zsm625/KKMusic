@@ -1,13 +1,12 @@
 package cn.com.zx221.javaweb.po;
 
-import java.sql.Timestamp;
 
 public class CdPo {
 	private int cd_id;
 	private String cd_name;
 	private String cd_coverUrl;
 	private int cd_songCount;
-	private Timestamp cd_publishDate;
+	private String cd_publishDate;
 	private int cd_singerId;
 	private String cd_introduce;
 	private int cd_collectionCount;
@@ -54,11 +53,11 @@ public class CdPo {
 		this.cd_songCount = cd_songCount;
 	}
 
-	public Timestamp getCd_publishDate() {
+	public String getCd_publishDate() {
 		return cd_publishDate;
 	}
 
-	public void setCd_publishDate(Timestamp cd_publishDate) {
+	public void setCd_publishDate(String cd_publishDate) {
 		this.cd_publishDate = cd_publishDate;
 	}
 
