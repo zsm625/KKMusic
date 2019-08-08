@@ -109,4 +109,20 @@ public class ServiceFactory {
 		return song;
 	}
 
+	/**
+	 * ISongListService
+	 *@author ZSM
+	 * @return
+	 */
+	public ISongListService creatSongListService() {
+		ISongListService songList = null;
+		String clsName = props.getProperty("songListService");
+		try {
+			Class cls = Class.forName(clsName);
+			songList = (ISongListService) cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return songList;
+	}
 }

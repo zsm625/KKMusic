@@ -22,4 +22,10 @@ public class ServiceFactoryTest {
 		SingerService singer = factory.createSingerService();
 		Assert.assertNotNull(singer);
 	}
+	@Test
+	public void createSongListService() {
+		ServiceFactory factory = ServiceFactory.getFactoryInstance();
+		ISongListService songList = factory.creatSongListService();
+		System.out.println(songList);
+	}
 }

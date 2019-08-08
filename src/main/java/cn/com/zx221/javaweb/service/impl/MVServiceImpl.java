@@ -12,6 +12,7 @@ import cn.com.zx221.javaweb.vo.MVVO;
 public class MVServiceImpl implements IMVService {
 	private IMVDao mvDAO = DAOFactory.getFactoryInstance().creatMVDAo();
 
+	@Override
 	public List<MVVO> selectMV(int currPageNo, int number, String mvArea, String mvType) {
 		if (number < 0) {
 			number = 20;
@@ -51,6 +52,7 @@ public class MVServiceImpl implements IMVService {
 	}
 
 	// 不分页
+	@Override
 	public List<MVVO> selectMV1(String keyword1, String keyword2) {
 		List<MVVO> mvList = null;
 

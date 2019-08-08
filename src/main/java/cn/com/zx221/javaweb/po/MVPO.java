@@ -15,78 +15,54 @@ public class MVPO {
 	private String mvIntroduce;
 	private Timestamp mvIssue;// 发行时间
 	private String mvSingerName;
-	private String mvUrl;
-
-	public String getMvUrl() {
-		return mvUrl;
-	}
-
-	public void setMvUrl(String mvUrl) {
-		this.mvUrl = mvUrl;
-	}
-
 	public int getMvId() {
 		return mvId;
 	}
-
 	public void setMvId(int mvId) {
 		this.mvId = mvId;
 	}
-
 	public String getMvName() {
 		return mvName;
 	}
-
 	public void setMvName(String mvName) {
 		this.mvName = mvName;
 	}
-
 	public String getMvArea() {
 		return mvArea;
 	}
-
 	public void setMvArea(String mvArea) {
 		this.mvArea = mvArea;
 	}
-
 	public String getMvType() {
 		return mvType;
 	}
-
 	public void setMvType(String mvType) {
 		this.mvType = mvType;
 	}
-
 	public int getMvPlayCount() {
 		return mvPlayCount;
 	}
-
 	public void setMvPlayCount(int mvPlayCount) {
 		this.mvPlayCount = mvPlayCount;
 	}
-
 	public String getMvIntroduce() {
 		return mvIntroduce;
 	}
-
 	public void setMvIntroduce(String mvIntroduce) {
 		this.mvIntroduce = mvIntroduce;
 	}
-
 	public Timestamp getMvIssue() {
 		return mvIssue;
 	}
-
 	public void setMvIssue(Timestamp mvIssue) {
 		this.mvIssue = mvIssue;
 	}
-
 	public String getMvSingerName() {
 		return mvSingerName;
 	}
-
 	public void setMvSingerName(String mvSingerName) {
 		this.mvSingerName = mvSingerName;
 	}
-
+	
+	
 }

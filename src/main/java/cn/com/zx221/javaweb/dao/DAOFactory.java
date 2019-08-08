@@ -119,5 +119,22 @@ public class DAOFactory {
 		}
 		return dao;
 	}
+	
+	/**
+	 * SongListDAO
+	 *@author ZSM
+	 * @return
+	 */
+	public ISongListDAO createSongListDAO() {
+		ISongListDAO songList = null;
+		String clsName = props.getProperty("songListDAO");
+		try {
+			Class cls = Class.forName(clsName);
+			songList = (ISongListDAO) cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return songList;
+	}
 
 }

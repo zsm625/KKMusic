@@ -45,43 +45,29 @@
 				<artifactId>json-lib</artifactId>
 				<version>2.4</version>
 			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+			<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
 			<dependency>
-				<groupId>jstl</groupId>
+				<groupId>javax.servlet.jsp.jstl</groupId>
 				<artifactId>jstl</artifactId>
 				<version>1.2</version>
 			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<scope>paxrovided</scope>
-		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -104,14 +90,6 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -141,16 +119,6 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-			<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<port>81</port>
-						<path>/</path>
-					</configuration>
-				</plugin>
-
 		</plugins>
 	</build>
 

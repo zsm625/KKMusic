@@ -272,6 +272,74 @@ public class SingerDAOImpl implements SingerDAO {
 				pstmt.setInt(1, currPageNo * number);
 				pstmt.setInt(2, number);
 			}
+			/*
+			 * if (!singer_initial.equals("热门") && !singer_sex.equals("全部") &&
+			 * !singer_areaId.equals("全部") && !singer_type.equals("全部")) {
+			 * pstmt.setString(1, singer_initial); pstmt.setString(2, singer_areaId);
+			 * pstmt.setString(3, singer_sex); pstmt.setString(4, singer_type);
+			 * pstmt.setInt(5, currPageNo * number); pstmt.setInt(6, number);
+			 * 
+			 * } else if (!singer_initial.equals("热门") && !singer_areaId.equals("全部") &&
+			 * !singer_sex.equals("全部")) { if (singer_type.equals("全部")) {
+			 * pstmt.setString(1, singer_initial); pstmt.setString(2, singer_areaId);
+			 * pstmt.setString(3, singer_sex); pstmt.setInt(4, currPageNo * number);
+			 * pstmt.setInt(5, number); } } else if (!singer_initial.equals("热门") &&
+			 * !singer_areaId.equals("全部")) {
+			 * 
+			 * if (singer_sex.equals("全部") && singer_type.equals("全部")) { pstmt.setString(1,
+			 * singer_initial); pstmt.setString(2, singer_areaId); pstmt.setInt(3,
+			 * currPageNo * number); pstmt.setInt(4, number); }
+			 * 
+			 * } else if (!singer_initial.equals("热门")) { if (singer_sex.equals("全部") &&
+			 * singer_areaId.equals("全部") && singer_type.equals("全部")) { pstmt.setString(1,
+			 * singer_initial); pstmt.setInt(2, currPageNo * number); pstmt.setInt(3,
+			 * number); } } else if (singer_initial.equals("热门")) { if
+			 * (!singer_areaId.equals("全部")) { if(!singer_sex.equals("全部") &&
+			 * !singer_type.equals("全部")) { pstmt.setString(1, singer_areaId);
+			 * pstmt.setString(2, singer_sex); pstmt.setString(3, singer_type);
+			 * pstmt.setInt(4, currPageNo * number); pstmt.setInt(5, number);
+			 * 
+			 * } if(!singer_sex.equals("全部")) { pstmt.setString(1, singer_areaId);
+			 * pstmt.setString(2, singer_sex); pstmt.setInt(3, currPageNo * number);
+			 * pstmt.setInt(4, number); } else if(singer_sex.equals("全部") &&
+			 * singer_type.equals("全部")){ pstmt.setString(1, singer_areaId); pstmt.setInt(2,
+			 * currPageNo * number); pstmt.setInt(3, number); } } if
+			 * (!singer_sex.equals("全部") && !singer_type.equals("全部")) { pstmt.setString(1,
+			 * singer_sex); pstmt.setString(2, singer_type); pstmt.setInt(3, currPageNo *
+			 * number); pstmt.setInt(4, number); } if (!singer_type.equals("全部")) {
+			 * pstmt.setString(1, singer_type); pstmt.setInt(2, currPageNo * number);
+			 * pstmt.setInt(3, number); } } else if (singer_type.equals("全部")) { if
+			 * (singer_initial.equals("热门") && singer_sex.equals("全部") &&
+			 * singer_areaId.equals("全部")) { pstmt.setInt(1, currPageNo * number);
+			 * pstmt.setInt(2, number); } if (singer_areaId.equals("全部") &&
+			 * singer_sex.equals("全部")) { pstmt.setString(1, singer_initial);
+			 * pstmt.setInt(2, currPageNo * number); pstmt.setInt(3, number); } if
+			 * (singer_sex.equals("全部")) { pstmt.setString(1, singer_initial);
+			 * pstmt.setString(2, singer_areaId); pstmt.setString(3, singer_type);
+			 * pstmt.setInt(4, currPageNo * number); pstmt.setInt(5, number); } }
+			 */
+
+
+			if (singer_initial != null && !(singer_initial = singer_initial.trim()).equals("")) {
+				pstmt.setString(1, singer_initial);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else if (singer_areaId != null && !(singer_areaId = singer_areaId.trim()).equals("")) {
+				pstmt.setString(1, singer_areaId);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else if (singer_sex != null && !(singer_sex = singer_sex.trim()).equals("")) {
+				pstmt.setString(1, singer_sex);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else if (singer_type != null && !(singer_type = singer_type.trim()).equals("")) {
+				pstmt.setString(1, singer_type);
+				pstmt.setInt(2, currPageNo * number);
+				pstmt.setInt(3, number);
+			} else {
+				pstmt.setInt(1, currPageNo * number);
+				pstmt.setInt(2, number);
+			}
 			rs = pstmt.executeQuery();
 
 			if (rs != null) {
