@@ -46,7 +46,7 @@ public class DAOFactory {
 
 	public ICdDAO createCdDAO() {
 		ICdDAO cd = null;
-		String clsName = props.getProperty("CdDao");
+		String clsName = props.getProperty("cdDAO");
 		try {
 			Class cls = Class.forName(clsName);
 			cd = (ICdDAO) cls.newInstance();
@@ -108,4 +108,15 @@ public class DAOFactory {
 		return dao;
 	}
 
+	public IUserDAO createUserDAO() {
+		IUserDAO dao = null;
+		try {
+			// 创建IFoodDAO对象（new 配置文件中foodDAO对应的实现类）
+			dao = (IUserDAO) this.createObject(this.props.getProperty("userDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return dao;
+	}
 }
