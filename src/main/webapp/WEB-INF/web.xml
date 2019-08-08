@@ -48,7 +48,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-
     <display-name>SingerDetailServlet</display-name>
     <servlet-name>SingerDetailServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.SingerDetailServlet</servlet-class>
@@ -56,8 +55,8 @@
   <servlet-mapping>
     <servlet-name>SingerDetailServlet</servlet-name>
     <url-pattern>/singerDetailServlet</url-pattern>
-</servlet-mapping>
-<servlet>
+  </servlet-mapping>
+  <servlet>
     <display-name>CdSongDetailServlet</display-name>
     <servlet-name>CdSongDetailServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.CdSongDetailServlet</servlet-class>
@@ -66,4 +65,31 @@
     <servlet-name>CdSongDetailServlet</servlet-name>
     <url-pattern>/cdSongDetailServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SongRelatedServlet</display-name>
+    <servlet-name>SongRelatedServlet</servlet-name>
+    <servlet-class>cn.com.zx221.javaweb.servlet.SongRelatedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SongRelatedServlet</servlet-name>
+    <url-pattern>/songRelatedServlet</url-pattern>
+  </servlet-mapping>
+  
+  <jsp-config>   
+  <jsp-property-group>   
+  <description>   
+  Special property group for JSP Configuration HTML   
+  example.   
+  </description>   
+  <display-name>JSPConfiguration</display-name>   
+  <url-pattern>*.html</url-pattern>   
+  <el-ignored>true</el-ignored>   
+  <page-encoding>UTF-8</page-encoding>   
+  <scripting-invalid>false</scripting-invalid>   
+  <include-prelude></include-prelude>   
+  <include-coda></include-coda>   
+  </jsp-property-group>   
+</jsp-config>
+
 </web-app>
