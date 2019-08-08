@@ -950,8 +950,8 @@ body ::-webkit-scrollbar-thumb {
 	top: 5px;
 	width: 14px;
 	height: 14px;
-	background-image: url(img/icon_sprite.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc);
-	background-image: -webkit-image-set(url(img/icon_sprite.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc&v=5fa916dafbaeb15e38e16da4cf0552fc) 1x, url(img/icon_sprite@2x.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc&v=5fa916dafbaeb15e38e16da4cf0552fc&v=4442d1eb15cbab70fb2e20c71931d3b5) 2x)
+	background-image: url(../images/img/icon_sprite.png);
+	background-image: -webkit-image-set(url(../images/img/icon_sprite.png) 1x, url(../images/img/icon_sprite.png) 2x)
 }
 
 .upload_slider__left {
@@ -988,8 +988,8 @@ body ::-webkit-scrollbar-thumb {
 	right: -15px;
 	width: 15px;
 	height: 15px;
-	background-image: url(img/icon_sprite.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc);
-	background-image: -webkit-image-set(url(img/icon_sprite.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc&v=5fa916dafbaeb15e38e16da4cf0552fc) 1x, url(img/icon_sprite@2x.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc&v=5fa916dafbaeb15e38e16da4cf0552fc&v=4442d1eb15cbab70fb2e20c71931d3b5) 2x);
+	background-image: url(../images/img/icon_sprite.png);
+	background-image: -webkit-image-set(url(../images/img/icon_sprite.png) 1x, url(../images/img/icon_sprite.png) 2x);
 	background-position: -180px -80px;
 	border-radius: 10px
 }
@@ -2058,8 +2058,7 @@ p.popup_data_detail__tips {
 
 .sprite,
 .sprite_before:before {
-	background-image: url(img/icon_sprite.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc);
-	background-image: -webkit-image-set(url(img/icon_sprite.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc&v=5fa916dafbaeb15e38e16da4cf0552fc) 1x, url(img/icon_sprite@2x.png?max_age=2592000&v=5fa916dafbaeb15e38e16da4cf0552fc&v=5fa916dafbaeb15e38e16da4cf0552fc&v=4442d1eb15cbab70fb2e20c71931d3b5) 2x)
+	background-image: -webkit-image-set(url('../images/img/icon_sprite.png') 1x, url('../images/img/icon_sprite@2x.png') 2x)
 }
 
 body {

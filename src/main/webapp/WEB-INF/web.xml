@@ -39,7 +39,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-
     <display-name>SingerDetailServlet</display-name>
     <servlet-name>SingerDetailServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.SingerDetailServlet</servlet-class>
@@ -47,8 +46,8 @@
   <servlet-mapping>
     <servlet-name>SingerDetailServlet</servlet-name>
     <url-pattern>/singerDetailServlet</url-pattern>
-</servlet-mapping>
-<servlet>
+  </servlet-mapping>
+  <servlet>
     <display-name>CdSongDetailServlet</display-name>
     <servlet-name>CdSongDetailServlet</servlet-name>
     <servlet-class>cn.com.zx221.javaweb.servlet.CdSongDetailServlet</servlet-class>
@@ -57,4 +56,17 @@
     <servlet-name>CdSongDetailServlet</servlet-name>
     <url-pattern>/cdSongDetailServlet</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>CharsetFilter</display-name>
+    <filter-name>CharsetFilter</filter-name>
+    <filter-class>cn.com.zx221.javaweb.filter.CharsetFilter</filter-class>
+    <init-param>
+      <param-name>charset</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharsetFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

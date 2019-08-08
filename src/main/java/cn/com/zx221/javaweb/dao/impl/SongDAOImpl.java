@@ -9,7 +9,6 @@ import java.util.List;
 
 import cn.com.zx221.javaweb.dao.ISongDAO;
 import cn.com.zx221.javaweb.db.DBConnection;
-import cn.com.zx221.javaweb.po.CdPo;
 import cn.com.zx221.javaweb.po.SongPO;
 
 public class SongDAOImpl implements ISongDAO {
@@ -19,7 +18,7 @@ public class SongDAOImpl implements ISongDAO {
 	 */
 	public List<SongPO> findSongsByCdId(int cdId) {
 		List<SongPO> result = null;
-		
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -27,12 +26,12 @@ public class SongDAOImpl implements ISongDAO {
 		conn = dbCon.getConnection();
 		String sql = " select * from song where song_cd_id = ?";
 		try {
-			pstmt=conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cdId);
 			rs = pstmt.executeQuery();
-			if(rs!=null) {
+			if (rs != null) {
 				result = new ArrayList<SongPO>();
-				while(rs.next()) {
+				while (rs.next()) {
 					SongPO po = new SongPO();
 					po.setSongId(rs.getInt("song_id"));
 					po.setSongName(rs.getString("song_name"));
@@ -51,13 +50,13 @@ public class SongDAOImpl implements ISongDAO {
 					result.add(po);
 				}
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbCon.close(conn, pstmt, rs);
 		}
-		
+
 		return result;
 	}
 

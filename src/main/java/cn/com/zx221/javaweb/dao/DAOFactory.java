@@ -49,12 +49,13 @@ public class DAOFactory {
 		String clsName = props.getProperty("CdDao");
 		try {
 			Class cls = Class.forName(clsName);
-			cd = (ICdDAO)cls.newInstance();
+			cd = (ICdDAO) cls.newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return cd;
 	}
+
 	/**
 	 * 反射产生对象
 	 * 
@@ -69,19 +70,6 @@ public class DAOFactory {
 		return obj;
 	}
 
-	public SingerDAO createSingerDAO() {
-		SingerDAO dao = null;
-		try {
-			dao = (SingerDAO) this.createObject(this.props.getProperty("singerDAO"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return dao;
-	}
-		String clsName = props.getProperty("CdDao");
-
-
-	
 	/**
 	 * 创建ISongDAO实例
 	 * 
@@ -97,7 +85,7 @@ public class DAOFactory {
 		}
 		return dao;
 	}
-	
+
 	public IMVDao creatMVDAo() {
 		IMVDao mv = null;
 		String clsName = props.getProperty("MVDao");
@@ -108,6 +96,16 @@ public class DAOFactory {
 			e.printStackTrace();
 		}
 		return mv;
+	}
+
+	public SingerDAO createSingerDAO() {
+		SingerDAO dao = null;
+		try {
+			dao = (SingerDAO) this.createObject(this.props.getProperty("singerDAO"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dao;
 	}
 
 }

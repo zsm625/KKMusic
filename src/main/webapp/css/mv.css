@@ -227,7 +227,7 @@
 
 .mod_cover:hover .mod_cover__icon_play {
 	background: 0 0\9;
-	filter: progid:dximagetransform.microsoft.alphaimageloader(src="img/播放.png", sizingmethod="crop") alpha(opacity=90);
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src="../images/mvImgs/cover_play.png", sizingmethod="crop") alpha(opacity=90);
 	opacity: .9;
 	-webkit-transform: scale(1) translateZ(0);
 	-webkit-transition-property: opacity, -webkit-transform;
@@ -240,8 +240,8 @@
 
 .mod_cover:hover .mod_cover__icon_play,
 .mod_cover__icon_play {
-	background-image: url(img/cover_play.png);
-	background-image: -webkit-image-set(url(img/cover_play.png) 1x, url(img/cover_play.png) 2x)
+	background-image: url(../images/mvImgs/cover_play.png);
+	background-image: -webkit-image-set(url(../images/mvImgs/cover_play.png) 1x, url(../images/mvImgs/cover_play.png) 2x)
 }
 
 .mod_cover:hover .mod_cover__icon_play {
@@ -1059,8 +1059,8 @@ _::-webkit-:not(:root:root) {
 	display: block;
 	width: 7px;
 	height: 12px;
-	background-image: url(img/icon_sprite.png?max_age=2592000&v=f36b659bcb28cf9d0a0ef861a7c4a17d);
-	background-image: -webkit-image-set(url(img/icon_sprite.png?max_age=2592000&v=f36b659bcb28cf9d0a0ef861a7c4a17d) 1x, url(img/icon_sprite@2x.png?max_age=2592000&v=f36b659bcb28cf9d0a0ef861a7c4a17d&v=3f97e1dba9d452fbb2fe496e385e88ba) 2x)
+	background-image: url(../images/img/icon_sprite.png?max_age=2592000&v=f36b659bcb28cf9d0a0ef861a7c4a17d);
+	background-image: -webkit-image-set(url(../images/img/icon_sprite.png?max_age=2592000&v=f36b659bcb28cf9d0a0ef861a7c4a17d) 1x, url(../images/img/icon_sprite@2x.png?max_age=2592000&v=f36b659bcb28cf9d0a0ef861a7c4a17d&v=3f97e1dba9d452fbb2fe496e385e88ba) 2x)
 }
 
 .toplist_switch__arrow_prev {

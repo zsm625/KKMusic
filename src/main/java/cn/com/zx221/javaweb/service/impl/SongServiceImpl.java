@@ -10,21 +10,24 @@ import cn.com.zx221.javaweb.service.ISongService;
 import cn.com.zx221.javaweb.vo.SongVo;
 
 public class SongServiceImpl implements ISongService {
+	private ISongDAO songDAO = DAOFactory.getFactoryInstance().createSongDAO();
+
 	private ISongDAO songDao = DAOFactory.getFactoryInstance().createSongDAO();
+
 	/**
 	 * 根据专辑id查歌曲
 	 */
 	public List<SongVo> findSongInfByCdId(int cdId) {
 		List<SongVo> result = null;
 		List<SongPO> pos = songDao.findSongsByCdId(cdId);
-		if(pos!=null) {
+		if (pos != null) {
 			result = new ArrayList<SongVo>();
 			for (SongPO songPO : pos) {
 				SongVo vo = new SongVo(songPO);
 				result.add(vo);
 			}
 		}
-		
+
 		return result;
 	}
 

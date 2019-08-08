@@ -3,15 +3,15 @@ package cn.com.zx221.javaweb.vo;
 import cn.com.zx221.javaweb.po.SongPO;
 
 /**
- * 页面歌曲列表的VO
- * 歌曲名、歌手、时长、专辑名、mv地址
+ * 页面歌曲列表的VO 歌曲名、歌手、时长、专辑名、mv地址
+ * 
  * @author ZSM
  *
  * @time 2019年8月5日下午4:54:39
  */
-public class SongVo extends SongPO{
+public class SongVo extends SongPO {
 	private SongPO po;
-	
+
 	public SongVo(SongPO po) {
 		this.po = po;
 	}
@@ -46,7 +46,6 @@ public class SongVo extends SongPO{
 		return po.getCdId();
 	}
 
-
 	@Override
 	public int getSongDownLoadCount() {
 		return po.getSongDownLoadCount();
@@ -56,7 +55,6 @@ public class SongVo extends SongPO{
 	public int getSongCollectionCount() {
 		return po.getSongCollectionCount();
 	}
-
 
 	@Override
 	public String getSongUrl() {
@@ -73,5 +71,4 @@ public class SongVo extends SongPO{
 		return po.getSongTime();
 	}
 
-	
 }
