@@ -130,7 +130,6 @@ public class SingerDAOImpl implements SingerDAO {
 		return count;
 	}
 
-
 	public List<SingerPo> findSinger(int currPageNo, int number, String singer_initial, String singer_areaId,
 			String singer_sex, String singer_type) {
 		List<SingerPo> singerList = null;
@@ -304,7 +303,7 @@ public class SingerDAOImpl implements SingerDAO {
 	}
 
 	/**
-	 * 根据id查找歌手信息
+	 * 根据歌手id查找歌手信息
 	 */
 	public SingerPo findSingerById(int singerId) {
 		SingerPo singer = null;
@@ -334,7 +333,46 @@ public class SingerDAOImpl implements SingerDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
+			dbConn.close(conn, pstmt, rs);
+		}
+		return singer;
+	}
+
+	/*
+	 * 通过歌曲id查询歌手信息
+	 */
+	@Override
+	public SingerPo fingSingerBySongId(int songId) {
+		SingerPo singer = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		DBConnection dbConn = DBConnection.getInstance();
+		try {
+			conn = dbConn.getConnection();
+			String sql = "select * from singer,song where song.song_singer_id=singer.singer_id"
+					+ " and song.song_id =?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, songId);
+			rs = pstmt.executeQuery();
+			if (rs != null && rs.next()) {
+				singer = new SingerPo();
+				singer.setSinger_id(rs.getInt("singer_id"));
+				singer.setSinger_name(rs.getString("singer_name"));
+				singer.setSinger_accessCount(rs.getInt("Singer_accessCount"));
+				singer.setSinger_collection(rs.getInt("singer_collection"));
+				singer.setSinger_areaId(rs.getString("singer_areaId"));
+				singer.setSinger_introduce(rs.getString("singer_introduce"));
+				singer.setSinger_birthday(rs.getTimestamp("singer_birthday"));
+				singer.setSinger_photoUrl(rs.getString("singer_photoUrl"));
+				singer.setSinger_sex(rs.getString("singer_sex"));
+				singer.setSinger_initial(rs.getString("singer_initial"));
+				singer.setSinger_type(rs.getString("singer_type"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			dbConn.close(conn, pstmt, rs);
 		}
 		return singer;

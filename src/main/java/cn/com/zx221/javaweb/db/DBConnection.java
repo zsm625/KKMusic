@@ -77,4 +77,12 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 	}
+	public void close(Connection conn, PreparedStatement pstmt) {
+		try {
+			conn.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

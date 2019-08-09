@@ -10,9 +10,11 @@ public class SingerVo extends SingerPo {
 	//扩展属性
 	private int countCD;
 	private int countSong;
+	private int countMV;
 	private List<SongVo> songList;
 	private String cdName;
 	private List<CdVo> cdList;
+	private List<MVVO> mvList;
 	public SingerVo(SingerPo singerPo) {
 		this.singerPo = singerPo;
 	}
@@ -83,6 +85,13 @@ public class SingerVo extends SingerPo {
 	public void setCountSong(int countSong) {
 		this.countSong = countSong;
 	}
+	
+	public int getCountMV() {
+		return countMV;
+	}
+	public void setCountMV(int countMV) {
+		this.countMV = countMV;
+	}
 	public List<SongVo> getSongList() {
 		return songList;
 	}
@@ -94,6 +103,12 @@ public class SingerVo extends SingerPo {
 	}
 	public void setCdList(List<CdVo> cdList) {
 		this.cdList = cdList;
+	}
+	public List<MVVO> getMvList() {
+		return mvList;
+	}
+	public void setMvList(List<MVVO> mvList) {
+		this.mvList = mvList;
 	}
 	
 }

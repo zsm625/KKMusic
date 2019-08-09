@@ -62,7 +62,7 @@ public class ServiceFactory {
 		}
 	}
 
-	public IMVService creatMVService() {
+	public IMVService createMVService() {
 		IMVService mv = null;
 		String clsName = props.getProperty("MVService");
 		try {
@@ -107,6 +107,17 @@ public class ServiceFactory {
 			e.printStackTrace();
 		}
 		return song;
+	}
+	public IUserService createIUserService() {
+		IUserService user = null;
+		String clsName = props.getProperty("userService");
+		try {
+			Class cls = Class.forName(clsName);
+			user = (IUserService) cls.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 }

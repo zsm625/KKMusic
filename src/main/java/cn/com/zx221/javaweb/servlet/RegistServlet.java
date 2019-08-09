@@ -51,18 +51,20 @@ public class RegistServlet extends HttpServlet {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.format(registDate);
 		boolean flag = userService.regist(userName, password, phoneNumber, registDate);
+		System.out.println(flag);
 		HttpSession session = request.getSession();
 		String code = (String) session.getAttribute("sms");
 		System.out.println(code);
 		boolean registFlag = false;
 		if (!code.equals(sms)) {
 			request.setAttribute("codeFlag", registFlag);
+			request.getRequestDispatcher("registUIServlet").forward(request, response);
 		} else {
 			if (flag != true) {
 				request.setAttribute("registFlag", registFlag);
-				request.getRequestDispatcher("registUIServlet");
+				request.getRequestDispatcher("registUIServlet").forward(request, response);
 			} else {
-				request.getRequestDispatcher("loginUIServlet");
+				request.getRequestDispatcher("loginUIServlet").forward(request, response);
 			}
 		}
 	}

@@ -30,6 +30,7 @@ public class TestSingerServiceImpl {
 		System.out.println(singerVo.getSongList().get(1).getSongName());
 		System.out.println(singerVo.getCdList().get(1).getCd_name());*/
 		System.out.println(singerVo.getSongList().get(0).getCdPo().getCd_name());
+		System.out.println(singerVo.getMvList().get(0).getMvName());
 	}
 
 }

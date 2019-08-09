@@ -25,6 +25,10 @@ public class SearchSongsServlet extends HttpServlet {
 		 * 接收标签名称
 		 */
 		String songTypeName = request.getParameter("songTypeName");
+		if (songTypeName != null) {
+			byte[] bytes = songTypeName.getBytes("ISO-8859-1");
+			songTypeName = new String(bytes, "UTF-8");
+		}
 		// 调用后面的service,获得页面要显示的songlist
 		ISongService songService = ServiceFactory.getFactoryInstance().createSongService();
 		List<SongListVO> songlist = songService.seacheSongList(songTypeName);

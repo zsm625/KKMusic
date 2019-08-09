@@ -31,7 +31,7 @@ public class SingerServlet extends HttpServlet {
 		String singer_area = "全部";
 		String singer_sex = "全部";
 		String singer_type = "全部";
-		if (keyword != null || !(keyword.trim().equals(""))) {
+		if (keyword != null && !(keyword.trim().equals(""))) {
 			byte[] bytes = keyword.getBytes("ISO-8859-1");
 			keyword = new String(bytes, "UTF-8");
 			if (!keyword.equals("热门,全部,全部,全部")) {
@@ -47,6 +47,7 @@ public class SingerServlet extends HttpServlet {
 		/*System.out.println(singer_initial + singer_area + singer_sex + singer_type);*/
 
 		List<SingerVo> singerList = singerService.findSinger(1, singer_initial, singer_area, singer_sex, singer_type);
+		System.out.println(singerList.size());
 		request.setAttribute("singerList", singerList);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/singer.jsp").forward(request, response);

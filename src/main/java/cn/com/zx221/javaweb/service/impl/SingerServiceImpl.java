@@ -66,34 +66,34 @@ public class SingerServiceImpl implements SingerService {
 		SingerVo singerVo = null;
 		SingerPo singerPo = this.singerDAO.findSingerById(singer_id);
 		singerVo = new SingerVo(singerPo);
-		
-		//singerVo添加cd数量
+
+		// singerVo添加cd数量
 		int cdCount = cdDAO.countCDBySingerId(singer_id);
 		singerVo.setCountCD(cdCount);
-		//singerVo添加song数量
+		// singerVo添加song数量
 		int songCount = songDAO.countSongBySingerId(singer_id);
 		singerVo.setCountSong(songCount);
-		//singerVo添加song列表
+		// singerVo添加song列表
 		List<SongPO> songPOList = songDAO.findSongBySingerId(singer_id);
 		List<SongVo> songVOList = new ArrayList<SongVo>();
 		SongVo songVo = null;
-		for(SongPO songPO:songPOList) {
+		for (SongPO songPO : songPOList) {
 			songVo = new SongVo(songPO);
 			CdPo cd = cdDAO.findCDById(songPO.getCdId());
 			songVo.setCdPo(cd);
-			songVOList.add(songVo);		
+			songVOList.add(songVo);
 		}
 		singerVo.setSongList(songVOList);
-		//获取单曲所属专辑名
-		
-		//singerVo添加专辑列表
+		// 获取单曲所属专辑名
+
+		// singerVo添加专辑列表
 		List<CdPo> cdPOList = cdDAO.fingCdBySingerId(singer_id);
 		List<CdVo> cdVOList = new ArrayList<CdVo>();
-		for(CdPo po:cdPOList) {
+		for (CdPo po : cdPOList) {
 			cdVOList.add(new CdVo(po));
 		}
 		singerVo.setCdList(cdVOList);
 		return singerVo;
 	}
-	//public List<SongVo> 
+
 }

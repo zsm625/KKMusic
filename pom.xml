@@ -45,6 +45,13 @@
 				<artifactId>json-lib</artifactId>
 				<version>2.4</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+			<dependency>
+				<groupId>javax.servlet.jsp.jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+
 
 		</dependencies>
 	</dependencyManagement>
@@ -62,26 +69,11 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>paxrovided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
+		
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -113,6 +105,7 @@
 			<version>1.2</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -140,6 +133,7 @@
 			<artifactId>aliyun-java-sdk-dysmsapi</artifactId>
 			<version>1.1.0</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>

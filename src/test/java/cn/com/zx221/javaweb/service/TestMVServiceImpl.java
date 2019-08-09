@@ -17,12 +17,12 @@ public class TestMVServiceImpl {
 
 	@Before
 	public void before() {
-		this.mvService = ServiceFactory.getFactoryInstance().creatMVService();
+		this.mvService = ServiceFactory.getFactoryInstance().createMVService();
 	}
 
 	@Test
 	public void testSelectMV() {
-		List<MVVO> mvList = this.mvService.selectMV(4, 20, null, "儿歌");
+		List<MVVO> mvList = this.mvService.selectMV(1, 1, null, null, "1");
 		System.out.println("mvList--->" + mvList);
 		if (mvList != null && mvList.size() > 0) {
 			for (int i = 0; i < mvList.size(); i++) {
