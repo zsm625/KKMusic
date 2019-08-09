@@ -22,55 +22,46 @@ public class SongListVO extends SongListPO {
 
 	@Override
 	public String getSonglistPicUrl() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistPicUrl();
 	}
 
 	@Override
 	public int getSonglistId() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistId();
 	}
 
 	@Override
 	public int getSonglistUserId() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistUserId();
 	}
 
 	@Override
 	public String getSonglistName() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistName();
 	}
 
 	@Override
 	public int getSonglistTypeId() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistTypeId();
 	}
 
 	@Override
 	public int getSonglistAccessCount() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistAccessCount();
 	}
 
 	@Override
 	public String getSonglistIntroduce() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistIntroduce();
 	}
 
 	@Override
 	public int getSonglistCollection() {
-
 		return songlistpo.getSonglistCollection();
 	}
 
 	@Override
 	public String getSonglistTags() {
-		// TODO Auto-generated method stub
 		return songlistpo.getSonglistTags();
 	}
 

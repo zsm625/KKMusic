@@ -38,19 +38,16 @@ public class SongVo extends SongPO {
 
 	@Override
 	public int getSongPlayCount() {
-		// TODO Auto-generated method stub
 		return super.getSongPlayCount();
 	}
 
 	@Override
 	public Timestamp getSongPublishDate() {
-		// TODO Auto-generated method stub
 		return super.getSongPublishDate();
 	}
 
 	@Override
 	public int getSongTypeId() {
-		// TODO Auto-generated method stub
 		return super.getSongTypeId();
 	}
 

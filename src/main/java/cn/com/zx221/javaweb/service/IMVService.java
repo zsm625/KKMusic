@@ -14,6 +14,8 @@ public interface IMVService {
 	 * @param keyword
 	 * @return
 	 */
-	public List<MVVO> selectMV(int currPageNo, int number, String mvArea, String mvType);
+	public List<MVVO> selectMV(int currPageNo, int number, String mvArea, String mvType, String isNew);
+
+	public MVVO selectMyById(Integer pkId);
 
 }

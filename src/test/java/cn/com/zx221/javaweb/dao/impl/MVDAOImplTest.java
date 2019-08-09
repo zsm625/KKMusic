@@ -38,7 +38,7 @@ public class MVDAOImplTest {
 	@Test
 	public void testSearchCurrPageMV() {
 		System.out.println("testSearchCurrPageMV......");
-		List<MVPO> mvList = this.mvDAO.searchCurrPageMV(1, 1, "内地", "儿歌");
+		List<MVPO> mvList = this.mvDAO.searchCurrPageMV(1, 1, "内地", "儿歌", "1");
 		// List<MVPO> mvList = this.mvDAO.searchCurrPageMV(1, 1, "本地", "儿歌");
 		System.out.println("区域：" + mvList.get(0).getMvArea());
 		// Assert.assertEquals(1,mvList.size());

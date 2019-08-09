@@ -14,8 +14,10 @@ public interface IMVDao {
 	 * @param keyword查询条件(区域  版本)
 	 * @return
 	 */
-	public List<MVPO> searchCurrPageMV(int currPageNo, int number, String mvArea, String mvType);
+	public List<MVPO> searchCurrPageMV(int currPageNo, int number, String mvArea, String mvType, String isNew);
 
 	public int findMVPlayCount(int mvId);
+
+	public MVPO findMVById(Integer pkId);
 
 }

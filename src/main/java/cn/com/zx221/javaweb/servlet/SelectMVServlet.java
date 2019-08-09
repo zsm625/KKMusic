@@ -19,7 +19,7 @@ public class SelectMVServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 //	private IMVService service = new MVServiceImpl();
-	IMVService service = ServiceFactory.getFactoryInstance().creatMVService();
+	IMVService service = ServiceFactory.getFactoryInstance().createMVService();
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// String path = req.getSession().getServletContext().getRealPath("/");
@@ -27,6 +27,8 @@ public class SelectMVServlet extends HttpServlet {
 
 		String mvArea = req.getParameter("mvArea");
 		String mvType = req.getParameter("mvType");
+
+		String isNew = req.getParameter("isNew");
 
 		int currPageNo = 1;// 当前页码
 		int pageSize = 5;// 每页条数
@@ -38,7 +40,7 @@ public class SelectMVServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		// 获得mv集合
-		List<MVVO> list = this.service.selectMV(currPageNo, pageSize, mvArea, mvType);
+		List<MVVO> list = this.service.selectMV(currPageNo, pageSize, mvArea, mvType, isNew);
 		req.setAttribute("list", list);
 		// 获得页数
 		int maxPage = 7;

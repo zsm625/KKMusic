@@ -62,7 +62,7 @@ public class ServiceFactory {
 		}
 	}
 
-	public IMVService creatMVService() {
+	public IMVService createMVService() {
 		IMVService mv = null;
 		String clsName = props.getProperty("MVService");
 		try {
